@@ -1,0 +1,47 @@
+form > div{
+	margin:7px 0;
+}
+form#teacher > div > span,
+form#student > div > span{
+	display:inline-block;
+	width:38px;
+	text-align:justify;
+	text-align-last:justify;
+}
+form#teacher > #handlePass,
+form#student > #handlePass{
+	position:relative;
+}
+form#teacher #eye,
+form#student #eye{
+	position:absolute;
+	width:7%;
+	right:0;
+	top:14%;
+}
+form#teacher,
+form#student{
+	position:absolute;
+	width:23%;
+	right:23%;
+	top:10%;
+	-webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+	display:none;
+}
+#eye:hover + #set_pass{
+	display:inline-block;
+}
+form > .buttons{
+	display:flex;
+	flex-wrap:nowrap;
+	justify-content: space-between;
+}
+form > .buttons > input{
+	outline:none;
+	border:none;
+	background:#D4D8C7;
+	padding:2px 10px; 
+	color:brown;
+}

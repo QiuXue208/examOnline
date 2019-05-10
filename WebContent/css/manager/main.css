@@ -1,0 +1,134 @@
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+.clearfix::after{
+	content:'';
+	display:block;
+	clear:both;
+}
+div.main{
+	width:100%;
+	height:90%;
+	overflow-y:scroll;
+}
+div.table{
+	display:flex;
+	flex-wrap:wrap;
+	height:100%;
+}
+div.table > .block{
+	width:33.3333%;
+	height:50%;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	justify-content:center;
+}
+form.block_modify{
+	-webkit-box-shadow: 0px 0px 2px 0px rgba(119,138,61,0.5);
+	-moz-box-shadow: 0px 0px 2px 0px rgba(119,138,61,0.5);
+	box-shadow: 0px 0px 2px 0px rgba(119,138,61,0.5);
+}
+.block > dl{
+	width:55%;
+}
+.block > dl > dd,
+.block > dl > dt{
+	float:left;
+	margin:2px 0;
+}
+.block > dl > dt{
+	width:80%;
+	padding-left:3%;
+}
+.block > dl > dd{
+	width:17%;
+	text-align:justify;
+	text-align-last:justify;	
+}
+.block > .operator{
+	width:55%;
+	display:flex;
+	flex-wrap:no-wrap;
+}
+.block > .operator > button{
+	background:#D4D8C7;
+	border:none;
+	width:30%;
+	padding:2px;
+	border-radius:1px;
+	margin:5px 15px 0 0;
+	color:brown;
+	outline:none;
+}
+.block > .operator > button:hover{
+	-webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5);
+	box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5);
+}
+div.remind > span{
+	color:crimson;
+	font-size:larger;
+}
+div.remind{
+	height:50%;
+	display:flex;
+	justify-content:center;
+	align-items: center;
+	font-size:17px;
+}
+form.block_modify{
+	display:none;
+	padding:1% 7%;
+	background:rgba(255,255,255,0.95);
+	position:absolute;
+	top:27%;
+	left:42%;
+	border-radius: 4px;
+}
+form.block_modify > div{
+	margin:7px 0;
+}
+form.block_modify > div > span{
+	display:inline-block;
+	width:38px;
+	text-align:justify;
+	text-align-last:justify;
+}
+form.block_modify > #handlePass{
+	position:relative;
+}
+form.block_modify #eye{
+	position:absolute;
+	width:7%;
+	right:0;
+	top:14%;
+}
+form.block_modify #set_pass{
+	position:absolute;
+	width:23%;
+	right:-23%;
+	top:-40%;
+	color:grey;
+	-webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+	display:none;
+}
+#eye:hover + #set_pass{
+	display:inline-block;
+}
+form.block_modify > .buttons{
+	display:flex;
+	flex-wrap:nowrap;
+	justify-content: space-between;
+}
+form.block_modify > .buttons > input{
+	outline:none;
+	border:none;
+	background:#D4D8C7;
+	padding:2px 10px; 
+	color:brown;
+}

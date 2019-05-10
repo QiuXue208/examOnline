@@ -1,0 +1,23 @@
+nav {
+	height: 10%;
+	width: 100%;
+	display:flex;
+    flex-direction:row-reverse;
+    align-items:center;
+}
+nav > form#addNew > input{
+	background:#536323;
+	color:white;
+	border:none;
+	outline:none;
+	padding:3px 10px;
+	margin-right:100px;
+}
+nav > form#addNew > input:hover{
+	-webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+}
+form#addNew{
+	display:block;
+}

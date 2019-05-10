@@ -1,0 +1,62 @@
+aside{
+	width:13%;
+	height:100%;
+	-webkit-box-shadow: 1px 0px 0px 0px rgba(119,138,61,.25);
+	-moz-box-shadow: 1px 0px 0px 0px rgba(119,138,61,.25);
+	box-shadow: 1px 0px 0px 0px rgba(119,138,61,.25);
+}
+aside > ul{
+	padding:75px 5px 15px 5px;
+}
+aside > ul > li{
+	cursor:pointer;
+	font-size:larger;
+	text-align:center;
+	padding:15px 10px;
+	text-decoration: underline;
+}
+aside > ul > li:hover{
+	color:crimson;
+}
+aside > ul > li:nth-child(2) {
+	position:relative;
+}
+aside > ul > li:nth-child(2):hover > .grade{
+	display:block;
+}
+div.grade{
+/* 	background:white; */
+	color:black;
+	display:none;
+	position:absolute;
+	width:45%;
+	right:-17%;
+	top:40%;
+	-webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.5);
+	box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.5);
+}
+div.class{
+	position:absolute;
+	background:white;
+	display:none;
+	width:80%;
+	right:-56%;
+	top:0%;
+	-webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+}
+div.class > div{
+	color:black;
+}
+div.class > div:hover{
+	color:crimson;
+}
+div.grade > div:hover{
+	color:crimson;
+}
+div.grade > div:hover > div.class{
+	display:block;
+}
+
