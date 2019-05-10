@@ -11,7 +11,7 @@
     int classes = Integer.parseInt(query.getQueryPara(request.getQueryString())[1]);
     session.setAttribute("grade", grade);
     session.setAttribute("class",classes);
-    String sql = "select * from student where grade = " + grade + "and class=" + classes;
+    String sql = "select * from student where grade = " + grade + "and class=" + classes + "order by ID";
     ResultSet rs=connDB1.executeQuery(sql);
 	if(!rs.next()){%>
 		<div class="remind">
@@ -26,16 +26,16 @@
 			%>
 					<div class="block block_<%=result%>">
 						<dl class="clearfix" id="<%=rs1.getString("id")%>">
-							<dd>用户:</dd>
+							<dd>学号:</dd>
 							<dt><%=rs1.getString("username")%></dt>
 							<dd>密码:</dd>
 							<dt><%=rs1.getString("password")%></dt>
 							<dd>邮箱:</dd>
 							<dt><%=rs1.getString("email")%></dt>
 							<dd>班级:</dd>
-							<dt><%=rs1.getString("class")%>班</dt>
+							<dt><%=rs1.getString("class")%></dt>
 							<dd>年级:</dd>
-							<dt>大<%=rs1.getString("grade")%></dt>
+							<dt><%=rs1.getString("grade")%></dt>
 							<dd>真名:</dd>
 							<dt><%=rs1.getString("truename")%></dt>
 							<dd>电话:</dd>
@@ -49,14 +49,7 @@
 			<%}%>
 		</div>
 	<%}%>
-	<form class="block_modify" method="post">
-		<%@include file="../template/student_form.jsp"%>
-		<div class="buttons">
-			<input type="submit" onclick="handleSubmit()" value="提交">
-			<input type="reset" onclick="handleReset()" value="重置">
-			<input type="button" onclick="handleCancel()" value="取消"></input>
-		</div>
-	</form>
+	<%@include file="../template/student_form.jsp"%>
 </div>
 <script src="../js/handleDB.js"></script>
 <script src="../js/check.js"></script>

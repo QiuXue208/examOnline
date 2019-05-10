@@ -27,16 +27,13 @@
 				+ "' ,level = '" + level	
 				+ "' where id = " + id;
 		int result = conn.executeUpdate(teacherSql);
-		out.println(result);
 		if(result != 0){
 			response.sendRedirect("../manager/management_teacher.jsp");
 		}
 	}
 	if(user.equals("student")){
-	    String gradeStr = chStr.chStr(request.getParameter("grade"));
-	    String classStr = chStr.chStr(request.getParameter("class"));
-		int grade = Integer.parseInt(gradeStr.substring(1));
-		int classes = Integer.parseInt(classStr.substring(0,classStr.indexOf("班")));
+		int grade = Integer.parseInt(chStr.chStr(request.getParameter("grade")));
+		int classes = Integer.parseInt(chStr.chStr(request.getParameter("class")));
 
 		String studentSql = "update student set username = '" + username 
 				+ "' ,password = '" + password 

@@ -2,11 +2,10 @@ var id
 var user
 //点击修改学生信息时改变样式
 function changeStyle(){
-	document.querySelector('form.block_modify').style.display = "block"
 	document.querySelector('.table').style.color = "grey"
 	var buttons = document.querySelectorAll('.operator > button')
 	buttons.forEach(function(value){
-           value.style.cssText = "color:white;background:lightgrey;"
+           value.style.cssText = "color:grey;background:lightgrey;"
        })
 }
 //修改学生信息
@@ -18,6 +17,8 @@ for(var i=0;i<modifyButton.length;i++){
  	    	//获取id
 			id = e.target.parentNode.previousElementSibling.id
 			user = e.target.parentNode.parentNode.parentNode.id
+			document.querySelector('form#' + user).style.display = "block"
+			document.querySelector('input#' + user + '_submit').setAttribute('value','提交')
 			
 			var classNames = e.target.parentNode.parentNode.className.split(' ')
 			var className = classNames[1]
@@ -36,7 +37,6 @@ for(var i = 0;i<deleteButton.length;i++){
 		var username = e.target.parentNode.previousElementSibling.firstElementChild.nextElementSibling.innerText
 		id = e.target.parentNode.previousElementSibling.id
 		user = e.target.parentNode.parentNode.parentNode.id
-
 		if(window.confirm("确认删除用户" + username + "吗?")){	 		
 	 		document.querySelector('form').setAttribute('action','./handle_delete.jsp?user=' + user + '&id=' + id)
 	 		document.querySelector('form').submit()
@@ -45,8 +45,8 @@ for(var i = 0;i<deleteButton.length;i++){
 }
 
 function handleSubmit(){
-	document.querySelector('form').setAttribute('action','./handle_modify.jsp?user=' + user + '&id=' + id)	
 	document.querySelector('form').submit()
+	document.querySelector('form').setAttribute('action','./handle_modify.jsp?user=' + user + '&id=' + id)	
 }
 function handleReset(){
 	var inputs = document.querySelectorAll('.block_modify > div.row > input')
@@ -59,6 +59,6 @@ function handleCancel(){
 	document.querySelector('.table').style.color = "black"
 	var buttons = document.querySelectorAll('.operator > button')
 	buttons.forEach(function(value){
-              value.style.cssText = "color:brown;background:#D4D8C7;"
-          })
+         value.style.cssText = "color:brown;background:#D4D8C7;"
+    })
 }

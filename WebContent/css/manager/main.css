@@ -63,7 +63,8 @@ form.block_modify{
 	color:brown;
 	outline:none;
 }
-.block > .operator > button:hover{
+.block > .operator > button:hover,
+form.block_modify > .buttons > input:hover{
 	-webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5);
 	-moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5);
 	box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5);

@@ -9,7 +9,7 @@
 
 <%
 	String user = query.getQueryPara(request.getQueryString())[0];
-	int id = Integer.parseInt(query.getQueryPara(request.getQueryString())[1]);
+// 	int id = Integer.parseInt(query.getQueryPara(request.getQueryString())[1]);
 	
 	String username = chStr.chStr(request.getParameter("username"));
 	String password = chStr.chStr(request.getParameter("password"));
@@ -19,6 +19,7 @@
 	
 	if(user.equals("teacher")){
 		String level = chStr.chStr(request.getParameter("level"));
+		int id = Integer.parseInt(username.substring(2));
 		String teacherStr = "insert into teacher (ID,username,password,truename,email,phone_number,level) values ("
 							+ id
 							+ ",'" + username
@@ -27,7 +28,8 @@
 							+ "','" + email
 							+ "','" + tel
 							+ "','" + level
-							+ "')"; 
+							+ "')";
+
 		int result = conn.executeUpdate(teacherStr);
 		if(result != 0){
 			response.sendRedirect("../manager/management_teacher.jsp");
@@ -38,6 +40,7 @@
 	    String classStr = chStr.chStr(request.getParameter("class"));
 		int grade = Integer.parseInt(gradeStr);
 		int classes = Integer.parseInt(classStr);
+		int id = Integer.parseInt(username.substring(1));
 		String teacherStr = "insert into student (ID,username,password,truename,email,phone_number,class,grade,score) values ("
 							+ id
 							+ ",'" + username
@@ -49,6 +52,7 @@
 							+ "," + grade
 							+ "," + 0
 							+ ")"; 
+
 		int result = conn.executeUpdate(teacherStr);
 		if(result != 0){
 			response.sendRedirect("../manager/management_student.jsp?grade="+grade+"&class="+classes);

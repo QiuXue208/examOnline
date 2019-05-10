@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="../css/manager/main.css">
 <div class="main">
  	<%	int result = 0;		 	
-    String sql = "select * from teacher";
+    String sql = "select * from teacher order by ID";
     ResultSet rs=connDB1.executeQuery(sql);
 	if(!rs.next()){%>
 		<div class="remind">
@@ -42,14 +42,7 @@
 			<%}%>
 		</div>
 	<%}%>
-	<form class="block_modify" name="teacher" method="post">
-		<%@include file="../template/teacher_form.jsp" %>
-		<div class="buttons">
-			<input type="submit" onclick="handleSubmit()" value="提交">
-			<input type="reset" onclick="handleReset()" value="重置">
-			<input type="button" onclick="handleCancel()" value="取消"></input>
-		</div>
-	</form>
+	<%@include file="../template/teacher_form.jsp" %>
 </div>
 <script src="../js/handleDB.js"></script>
 <script src="../js/check.js"></script>
