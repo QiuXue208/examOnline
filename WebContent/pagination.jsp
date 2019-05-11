@@ -1,22 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
-<jsp:useBean id="conn" scope="page"  class="tools.ConnDB" />
 <link href="../css/pagination.css" rel="stylesheet">
 <%
-	String queryString = request.getQueryString();
-// 	int studentLength = 0;
-// 	int teacherLength = 0;
-// 	String studentStr = "select ID from student";
-// 	String teacherStr = "select ID from teacher";
-// 	ResultSet rs_student = conn.executeQuery(studentStr);
-// 	while(rs_student.next()){
-// 		studentLength += 1;
-// 	}
-// 	ResultSet rs_teacher = conn.executeQuery(teacherStr);
-// 	while(rs_teacher.next()){
-// 		teacherLength +=1 ;
-// 	}
+	String queryString_p = request.getQueryString();
 %>
 <nav>
     <form method="post" id="addNew">
@@ -25,7 +12,7 @@
 </nav>
 <script>
 	document.querySelector('#addUser').addEventListener('click',function(e){		
-    <%if(queryString == null){%>
+    <%if(queryString_p == null){%>
     	document.querySelector('form#teacher').style.display = 'block'
     	document.querySelector('input#teacher_submit').setAttribute('value','添加')
     	changeStyle()

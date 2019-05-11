@@ -18,9 +18,9 @@
 		<%@ include file="../header.jsp"%>
 		<div class="container_all">
 		    <div class="container_top">
-				<%@ include file="../manager/aside.jsp"%>
+				<%@ include file="./aside.jsp"%>
 				<div class="container_right">
-					<%@ include file="../manager/main_teacher.jsp"%>
+					<jsp:include page="./main_teacher.jsp"/>
 	                <%@ include file="../pagination.jsp"%>
 				</div>		    
 		    </div>

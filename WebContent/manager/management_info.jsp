@@ -19,9 +19,9 @@
 		<%@ include file="../header.jsp"%>
 		<div class="container_all">
 		    <div class="container_top">
-				<%@ include file="../manager/aside.jsp"%>
+				<%@ include file="./aside.jsp"%>
 				<div class="container_right">
-					<%@ include file="../manager/main_info.jsp"%>
+					<%@ include file="./main_info.jsp"%>
 	                <%-- 信息修改页无页面转换 --%>
 				</div>		    
 		    </div>

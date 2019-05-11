@@ -2,4 +2,6 @@ eclipse.preferences.version=1
 encoding//WebContent/index.jsp=UTF-8
 encoding//WebContent/loginDeal.jsp=UTF-8
 encoding//WebContent/manager/main_teacher.jsp=UTF-8
+encoding//WebContent/student/exam.jsp=UTF-8
 encoding//WebContent/student/index.jsp=UTF-8
+encoding//WebContent/student/score.jsp=UTF-8

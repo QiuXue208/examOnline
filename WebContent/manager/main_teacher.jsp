@@ -2,12 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*"%>
 <jsp:useBean id="chStr" scope="page" class="tools.chStr" />
-<jsp:useBean id="connDB1" scope="page" class="tools.ConnDB" />
+<jsp:useBean id="conn_t" scope="page" class="tools.ConnDB" />
 <link rel="stylesheet" href="../css/manager/main.css">
 <div class="main">
  	<%	int result = 0;		 	
-    String sql = "select * from teacher order by ID";
-    ResultSet rs=connDB1.executeQuery(sql);
+    String sql_t = "select * from teacher order by ID";
+    ResultSet rs=conn_t.executeQuery(sql_t);
 	if(!rs.next()){%>
 		<div class="remind">
 			<span>还没有教师信息，您可以点击下方</span>
@@ -15,7 +15,7 @@
 		</div>
 	<%}else{%>
 		<div class="table" id="teacher">
-			<%ResultSet rs1=connDB1.executeQuery(sql);		    
+			<%ResultSet rs1=conn_t.executeQuery(sql_t);		    
 			  while(rs1.next()){
 			  	result++;
 			%>

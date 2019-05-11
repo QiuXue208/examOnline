@@ -19,13 +19,13 @@
 		<%@ include file="../header.jsp"%>
 		<div class="container_all">
 		    <div class="container_top">
-				<%@ include file="../manager/aside.jsp"%>
+				<%@ include file="./aside.jsp"%>
 				<div class="container_right">
-					<%@ include file="../manager/main_student.jsp"%>
-	                <%@ include file="../pagination.jsp"%>
+					<jsp:include page="../manager/main_student.jsp"/>
+	                <jsp:include page="../pagination.jsp"/>
 				</div>		    
 		    </div>
-			<%@ include file="../copyright.jsp" %>
+			<jsp:include page="../copyright.jsp" />
 		</div>
 </body>
 </html>
