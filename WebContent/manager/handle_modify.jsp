@@ -19,7 +19,7 @@
      
 	if(user.equals("teacher")){
 		String level = chStr.chStr(request.getParameter("level"));
-		String teacherSql = "update teacher set username = '" + username 
+		String teacherSql = "update teacher set t_username = '" + username 
 				+ "' ,password = '" + password 
 				+ "' ,truename = '" + truename
 				+ "' ,email = '" + email 
@@ -35,7 +35,7 @@
 		int grade = Integer.parseInt(chStr.chStr(request.getParameter("grade")));
 		int classes = Integer.parseInt(chStr.chStr(request.getParameter("class")));
 
-		String studentSql = "update student set username = '" + username 
+		String studentSql = "update student set s_username = '" + username 
 				+ "' ,password = '" + password 
 				+ "' ,truename = '" + truename
 				+ "' ,email = '" + email 

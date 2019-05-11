@@ -7,7 +7,7 @@
 	String username1 = (String)session.getAttribute("username");
 	String password1 = (String)session.getAttribute("password");
 	try{
-		ResultSet rs = connDB2.executeQuery("select * from manager where username = '" + username1 + "' and password = '" + password1 + "'");
+		ResultSet rs = connDB2.executeQuery("select * from manager where m_username = '" + username1 + "' and password = '" + password1 + "'");
 		if(rs.next()){
 %>
 		<div class="main">
@@ -28,11 +28,11 @@
 				</div>
 				<div class="email">
 					<span class="info">邮箱</span><label>:</label>
-					<input type="email" class="clearEle" name="email1" value="<%=rs.getString(6)%>">
+					<input type="email" class="clearEle" name="email1" value="<%=rs.getString(5)%>">
 				</div>
 				<div class="phone">
 					<span class="info">电话号码</span><label>:</label>
-					<input type="tel" class="clearEle" name="phone1" value="<%=rs.getString(5)%>">
+					<input type="tel" class="clearEle" name="phone1" value="<%=rs.getString(6)%>">
 				</div>
 				<div class="submit">
 					<input type="button" value="重新填写" onclick="clearAll()">

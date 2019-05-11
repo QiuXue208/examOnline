@@ -12,7 +12,7 @@
 
     try{
 		if("教师".equals(user)){		
-			ResultSet rs=conn.executeQuery("select * from teacher where username = '" + username + "'");
+			ResultSet rs=conn.executeQuery("select * from teacher where t_username = '" + username + "'");
 			if(rs.next()){				
 				if(password.equals(rs.getString("password"))){
 					session.setAttribute("username",username);
@@ -27,7 +27,7 @@
 			}
 		}
 		if("学生".equals(user)){
-			ResultSet rs=conn.executeQuery("select * from student where username= '" + username + "'");
+			ResultSet rs=conn.executeQuery("select * from student where s_username= '" + username + "'");
 			if(rs.next()){
 				if(password.equals(rs.getString("password"))){
 					session.setAttribute("username",username);
@@ -42,7 +42,7 @@
 			}
 		}
 		if("管理员".equals(user)){
-			ResultSet rs=conn.executeQuery("select * from manager where username= '" + username + "'");			
+			ResultSet rs=conn.executeQuery("select * from manager where m_username= '" + username + "'");			
 			if(rs.next()){
 				if(password.equals(rs.getString("password"))){
 					session.setAttribute("username",username);

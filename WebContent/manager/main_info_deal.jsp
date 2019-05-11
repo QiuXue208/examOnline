@@ -12,12 +12,12 @@ try{
 	String name2 = chStr.chStr(request.getParameter("name1"));
 	String email2 = chStr.chStr(request.getParameter("email1"));
 	String phone_number2 = chStr.chStr(request.getParameter("phone1"));
-	String updateSql = "update manager set username = '" + username2 
+	String updateSql = "update manager set m_username = '" + username2 
 			+ "' ,password = '" + password2 
-			+ "' ,name = '" + name2 
+			+ "' ,truename = '" + name2 
 			+ "' ,email = '" + email2 
 			+ "' ,phone_number = '" + phone_number2 
-			+ "' where username = '" + (String)session.getAttribute("username")
+			+ "' where m_username = '" + (String)session.getAttribute("username")
 			+ "' and password = '" + (String)session.getAttribute("password")
 			+ "'";
 	int result = 0;
@@ -25,11 +25,12 @@ try{
 	session.setAttribute("username",username2);
 	session.setAttribute("password",password2);
 	if(result != 0){
-		response.sendRedirect("./management_info.jsp");
+		out.print("<script language='javascript'>alert('信息修改成功-_-');window.location.href='./management_info.jsp'</script>");
+// 		response.sendRedirect("./management_info.jsp");
 	}else{
-		out.print("<script language='javascript'>alert('您未修改任何信息-_-')</script>");
+		out.print("<script language='javascript'>alert('您未修改任何信息-_-');window.location.href='./management_info.jsp'</script>");
 	}
 }catch(Exception e){
-	out.println("<script language='javascript'>alert(e)</script>");
+	out.println("<script language='javascript'>alert('您的操作有误')</script>");
 }
 %>

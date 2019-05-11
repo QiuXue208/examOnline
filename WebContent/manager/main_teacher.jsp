@@ -22,7 +22,7 @@
 				<div class="block block_<%=result%>">
 					<dl class="clearfix" id="<%=rs1.getString("id")%>">
 						<dd>用户:</dd>
-						<dt><%=rs1.getString("username")%></dt>
+						<dt><%=rs1.getString("t_username")%></dt>
 						<dd>密码:</dd>
 						<dt><%=rs1.getString("password")%></dt>
 						<dd>真名:</dd>

@@ -19,8 +19,8 @@
 	
 	if(user.equals("teacher")){
 		String level = chStr.chStr(request.getParameter("level"));
-		int id = Integer.parseInt(username.substring(2));
-		String teacherStr = "insert into teacher (ID,username,password,truename,email,phone_number,level) values ("
+		int id = Integer.parseInt(username.substring(1));
+		String teacherStr = "insert into teacher (ID,t_username,password,truename,email,phone_number,level) values ("
 							+ id
 							+ ",'" + username
 							+ "','" + password
@@ -41,7 +41,7 @@
 		int grade = Integer.parseInt(gradeStr);
 		int classes = Integer.parseInt(classStr);
 		int id = Integer.parseInt(username.substring(1));
-		String teacherStr = "insert into student (ID,username,password,truename,email,phone_number,class,grade,score) values ("
+		String teacherStr = "insert into student (ID,s_username,password,truename,email,phone_number,class,grade,score) values ("
 							+ id
 							+ ",'" + username
 							+ "','" + password
