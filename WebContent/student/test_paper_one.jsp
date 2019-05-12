@@ -21,7 +21,7 @@
 	    <div class="container_top">
 			<%@ include file="./aside.jsp"%>
 			<div class="container_right">
-				<%@ include file="./main_papper_two.jsp"%>
+				<%@ include file="./main_paper_one.jsp"%>
 			</div>		    
 	    </div>
 		<%@ include file="../copyright.jsp" %>
