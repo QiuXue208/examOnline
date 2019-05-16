@@ -1,3 +1,15 @@
+/***********************变量*****************************/
+var search = window.document.location.search
+var type = search.substring(1).substring(5)
+/***************************管理员*********************************/
+//清空管理员修改信息页表单
+function clearAll(e) {
+   var clearElements = document.getElementsByClassName('clearEle')
+   for(let i=0;i<clearElements.length;i++){
+	   clearElements[i].value = ''
+   }
+}
+/********************************学生**************************************/
 var id
 var user
 //点击修改学生信息时改变样式
@@ -43,17 +55,19 @@ for(var i = 0;i<deleteButton.length;i++){
 		}
  	})
 }
-
+//修改学生信息时的按钮提交
 function handleSubmit(){
 	document.querySelector('form').submit()
 	document.querySelector('form').setAttribute('action','./handle_modify.jsp?user=' + user + '&id=' + id)	
 }
+//重置修改学生信息时的表单
 function handleReset(){
 	var inputs = document.querySelectorAll('.block_modify > div.row > input')
 	inputs.forEach(function(input,index){
 		input.setAttribute('value','')
 	})
 }
+//取消填写修改学生信息的表单
 function handleCancel(){
 	document.querySelector('form').style.display = 'none'
 	document.querySelector('.table').style.color = "black"

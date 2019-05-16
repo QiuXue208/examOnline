@@ -1,14 +1,14 @@
 <%@ page contentType="text/html; charset=UTF-8" language="java" errorPage="" %>
 <%@ page import="java.sql.*"%>
-<jsp:useBean id="chStr" scope="page" class="tools.chStr" />
+<jsp:useBean id="ChStr" scope="page" class="tools.chStr" />
 <jsp:useBean id="conn" scope="page" class="tools.ConnDB" />
 <link rel="icon" href="./images/title.png" type="image/x-icon">
 <title>柚子考试系统</title>
 <%
     //将用户输入及选择进行编码转换
-    String username=chStr.chStr(request.getParameter("username"));
-    String password=chStr.chStr(request.getParameter("password"));
-    String user=chStr.chStr(request.getParameter("user"));
+    String username=ChStr.chStr(request.getParameter("username"));
+    String password=ChStr.chStr(request.getParameter("password"));
+    String user=ChStr.chStr(request.getParameter("user"));
 
     try{
 		if("教师".equals(user)){		

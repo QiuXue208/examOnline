@@ -24,8 +24,9 @@
   <h1>柚子考试系统</h1>
   <div class="user">
       <img alt="profile" src="../images/profile.png">
-      <span><%=truename%></span>
-      <div class="logout" onclick="sendRedirect()">退出登录</div>
+      <span class="name"><%=truename%></span>
+      <span>|</span>
+      <div class="logout" onclick="sendRedirect()">退出</div>
   </div>
 </header>
 <script>

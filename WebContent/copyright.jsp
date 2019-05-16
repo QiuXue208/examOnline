@@ -4,9 +4,9 @@
 	footer{
 	   width:100%;
 	   height:10%;
-	   -webkit-box-shadow: 0px -1px 0px 0px rgba(119,138,61,0.25);
-	   -moz-box-shadow: 0px -1px 0px 0px rgba(119,138,61,0.25);
-	   box-shadow: 0px -1px 0px 0px rgba(119,138,61,0.25);
+	   -webkit-box-shadow: 0px -1px 0px 0px rgba(119,138,61,0.1);
+	   -moz-box-shadow: 0px -1px 0px 0px rgba(119,138,61,0.1);
+	   box-shadow: 0px -1px 0px 0px rgba(119,138,61,0.1);
 	}
 	footer,footer>ul{	
 	   display:flex;

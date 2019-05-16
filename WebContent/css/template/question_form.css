@@ -1,0 +1,42 @@
+div.main > form{
+	position:absolute;
+	top:15%;
+	left:35%;
+	border-radius:5px;
+	display:none;
+	box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.5);
+	background:white;
+	padding:7px 77px;
+}
+div.main > form > div{
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	margin:10px 0;
+}
+div.main > form > div > div > span{
+	margin-right:5px;
+	display:inline-block;
+	width:50px;
+	text-align:justify;
+	text-align-last:justify;
+	font-size:large;
+}
+div.main > form > div > div > label{
+	margin-right:5px;
+}
+div.main > form > div > input{
+	background:#D4D8C7;
+	border:none;
+	width:20%;
+	padding:2px;
+	border-radius:1px;
+	margin:5px 15px 0 0;
+	color:brown;
+	outline:none;
+}
+div.main > form > div > input:hover{
+	-webkit-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
+	box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
+}

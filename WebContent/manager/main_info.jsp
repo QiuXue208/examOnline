@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.sql.*" %>
 <jsp:useBean id="connDB2" scope="page" class="tools.ConnDB"></jsp:useBean>
-<link rel="stylesheet" href="../css/manager/main_info.css">
+<link rel="stylesheet" href="../css/main_info.css">
 <%
 	String username1 = (String)session.getAttribute("username");
 	String password1 = (String)session.getAttribute("password");
@@ -11,7 +11,7 @@
 		if(rs.next()){
 %>
 		<div class="main">
-			<form name="form1" id="form1" action="main_info_deal.jsp" method="post">
+			<form name="form1" id="form1" action="./main_info_deal.jsp" method="post">
 				<div class="username">
 					<span class="info">用户名</span><label>:</label>
 					<input type="text" class="clearEle" name="username1" value="<%=username1%>" required oninvalid="setCustomValidity('请确保用户名不为空')">
@@ -36,11 +36,11 @@
 				</div>
 				<div class="submit">
 					<input type="button" value="重新填写" onclick="clearAll()">
-					<input type="submit" value="修改信息" onclick="verify()">
+					<input type="submit" value="修改信息">
 				</div>			
 			</form>
 		</div>
-		<script src="../js/check.js"></script>
+		<script src="../js/handleDB.js"></script>
 <%
 		}else{
 			%>

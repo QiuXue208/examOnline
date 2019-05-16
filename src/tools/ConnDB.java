@@ -44,6 +44,10 @@ public class ConnDB {
 //			e.printStackTrace(); // 输出异常信息
 //		}
 //	}
+	//构造函数
+	public ConnDB() {
+		
+	}
 
 	//连接数据库
 	@SuppressWarnings("deprecation")
@@ -143,6 +147,33 @@ public class ConnDB {
 			e.printStackTrace(System.err); 
 		}
 	}
+//	//删除一行记录
+//	public void deleteRow (String type,int ID){		
+//		String deleteSql = "delete from " + type + " where ID = " + ID; 
+//		int result = executeUpdate(deleteSql);
+//		//再将ID都移前一位
+//		String updateSql = "";
+//		ResultSet rs_sum = executeQuery("select ID from " + type + " where ID > " + ID + "order by ID");
+//		int id = 0;
+//		try {
+//			while(rs_sum.next()){
+//				id = rs_sum.getInt("ID");
+//				updateSql= "update " + type + " set ID = "+ (id-1) + "where ID = " + id;
+//				int result1 = executeUpdate(updateSql);
+//				if(result1 == 0){
+//					System.out.print("<script>alert('操作有误！');window.location.href = './exam_" + type + ".jsp?type=" + type + "'</script>");
+//				}
+//			}
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}			
+//		if(result != 0){
+//			System.out.print("<script>alert('删除成功！');window.location.href = './exam_" + type + ".jsp?type=" + type + "'</script>");
+//		}else{
+//			System.out.print("<script>alert('操作有误！');window.location.href = './exam_" + type + ".jsp?type=" + type + "'</script>");
+//		}
+//	}
 
 }
 

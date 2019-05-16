@@ -22,15 +22,3 @@ document.onkeydown = function(e) {
 		document.getElementById("submit").click()
 	}
 }
-
-//清空管理员修改信息页表单
-function clearAll(e) {
-   var clearElements = document.getElementsByClassName('clearEle')
-   for(let i=0;i<clearElements.length;i++){
-	   clearElements[i].value = ''
-   }
-}
-
-function verify(){
-	
-}
