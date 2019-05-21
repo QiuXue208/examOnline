@@ -4,57 +4,32 @@
 nav {
 	height: 10%;
 	width: 100%;
-	display:flex;
-	justify-content: space-between;
-	flex-wrap:nowrap;
 }
-nav > div{
-	height:100%;
-	display:flex;
-	align-items: center;
+nav > div.timer{
+	position:absolute;
+	top:20px;
+	left:23%;
 }
-nav > div.timer > img{
-	height:50%;
-	margin-left: 10px;
+nav > div.timer > span> img{
+	height:25px;
 	margin-right:5px;
 }
-nav > div >  button{
-	background:#536323;
-	color:white;
-	border:none;
-	outline:none;
-	padding:3px 10px;
-	margin-right: 50px;
+nav > div.timer > span{
+	vertical-align: middle;
 }
 nav > div > time{
 	color:brown;
- 	font-size:18px;
-}
-nav > div >  button:hover{
-	-webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
-	box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+ 	font-size:22px;
 }
 </style>
 <nav>
-<!-- 	<div><button>开始答题</button></div> -->
 	<div class="timer">
-	    <img src="../images/timer_1.png" alt="timer">
+		<span><img src="../images/timer_1.png" alt="timer"></span>
 	    <time id="time">02:30:00</time>
-<!-- 	    <span>倒计时<time id="time">02:30:00</time></span> -->
 	</div>
-	<div><button id="commit_paper" onclick="commitPaper()">提交试卷</button></div>
-    <div><button onclick="returnToQuestion()">返回</button></div>
 </nav>
 <script>
 	handleTimer()
-	function returnToQuestion(){
-		window.location.href = "./exam.jsp"
-	}
-	function commitPaper(){
-		//处理提交试卷
-		window.location.href = "./exam_result.jsp"
-	}
 	function handleTimer(){
 		var times = document.querySelector('#time').innerText.split(':')
 		var hour = parseInt(times[0])

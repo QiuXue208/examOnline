@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <%@ page import="java.sql.*"%>
 <jsp:useBean id="chStr" scope="page" class="tools.chStr" />
 <jsp:useBean id="connJ" scope="page" class="tools.ConnDB" />
@@ -25,6 +24,10 @@
   		</div>  		
   <%}%>
   	<form class="question_form" id="judgement_form" name="judgementForm" method="post">
+		<div class="hint">
+			<span><img src="../images/hint.png" alt="hint"></span>
+			<span class="text">该卡片用于添加判断题哦</span>
+		</div>
 		<div>
 			<div><span>题目</span><label>:</label></div>
 			<textarea name="title" rows="3" cols="50" placeholder="请输入题名"></textarea>
@@ -35,7 +38,7 @@
 		</div>
 		<div>
 			<div><span>解析</span><label>:</label></div>
-			<textarea name="analysis" rows="3" cols="50" placeholder="请输入解析"></textarea>
+			<textarea name="score" rows="3" cols="50" placeholder="请输入解析"></textarea>
 		</div>
 		<div>
 			<input value="重新填写" type="button" onclick="clearAllContent()">

@@ -9,12 +9,11 @@ function clearAll(e) {
 	   clearElements[i].value = ''
    }
 }
-/********************************学生**************************************/
 var id
 var user
 //点击修改学生信息时改变样式
 function changeStyle(){
-	document.querySelector('.table').style.color = "grey"
+	document.querySelector('.main').style.color = "grey"
 	var buttons = document.querySelectorAll('.operator > button')
 	buttons.forEach(function(value){
            value.style.cssText = "color:grey;background:lightgrey;"
@@ -70,7 +69,7 @@ function handleReset(){
 //取消填写修改学生信息的表单
 function handleCancel(){
 	document.querySelector('form').style.display = 'none'
-	document.querySelector('.table').style.color = "black"
+	document.querySelector('.main').style.color = "black"
 	var buttons = document.querySelectorAll('.operator > button')
 	buttons.forEach(function(value){
          value.style.cssText = "color:brown;background:#D4D8C7;"

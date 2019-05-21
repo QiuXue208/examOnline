@@ -36,27 +36,33 @@ nav > button:hover{
 	}
 	function addNewQuestion(){
 		var search = window.document.location.search
-		var type = search.substring(1).substring(5)
+		var type = search.split('&')[0].substring(6)
 		if(type === "selection"){
 			document.querySelector('#selection_form').style.display = 'block'
 			document.querySelector('#submitSelection').setAttribute('value','添加试题')
+			document.querySelector('.hint > span.text').innerText = '该卡片用于添加选择题哦'
 			changeStyle('lightgrey','lightgrey','white')
 			var textAreas = document.querySelectorAll('#selection_form > div > textarea')
 			textAreas.forEach(function(textArea,key){
 				textArea.value = '' 
 			})
 		}
-// 		if(type === "filling"){
-// 			document.querySelectorAll('#submitFilling').forEach(function(element){
-// 				element.setAttribute('value','添加试题')
-// 			})						
-// 			changeStyle('lightgrey','lightgrey','white')
-// 		}
 		if(type === "judgement"){
 			document.querySelector('#judgement_form').style.display = 'block'
 				document.querySelector('#submitJudgement').setAttribute('value','添加试题')
+				document.querySelector('.hint > span.text').innerText = '该卡片用于添加判断题哦'
 				changeStyle('lightgrey','lightgrey','white')
 				var textAreas = document.querySelectorAll('#judgement_form > div > textarea')
+				textAreas.forEach(function(textArea,key){
+					textArea.value = '' 
+				})
+		}
+		if(type === "short"){
+			document.querySelector('#short_form').style.display = 'block'
+				document.querySelector('#submitShort').setAttribute('value','添加试题')
+				document.querySelector('.hint > span.text').innerText = '该卡片用于添加简答题哦'				
+				changeStyle('lightgrey','lightgrey','white')
+				var textAreas = document.querySelectorAll('#short_form > div > textarea')
 				textAreas.forEach(function(textArea,key){
 					textArea.value = '' 
 				})

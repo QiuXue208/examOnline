@@ -9,6 +9,7 @@ modifyButtons.forEach(function(button){
 		var list = e.target.parentNode.parentNode.parentNode.className.substring(8)	
 		selectionId = sum - list + 1
 		document.querySelector('#submitSelection').setAttribute('value','提交修改')
+		document.querySelector('.hint > span.text').innerText = '该卡片用于修改选择题哦'
 		document.querySelector('#selection_form').style.display = 'block'
 		changeStyle('lightgrey','lightgrey','white')
 		var textAreas = document.querySelectorAll('#selection_form > div > textarea')

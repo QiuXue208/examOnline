@@ -22,12 +22,12 @@
 // 		window.location.href = "./exam_filling.jsp?type=filling"
 // 	})
 	document.querySelector('#short_five').addEventListener('click',function(){
-		window.location.href = "./exam_short.jsp?type=short&score=five"
+		window.location.href = "./exam_short.jsp?type=short&score=5"
 	})
 	document.querySelector('#short_ten').addEventListener('click',function(){
-		window.location.href = "./exam_short.jsp?type=short&score=ten"
+		window.location.href = "./exam_short.jsp?type=short&score=10"
 	})
 	document.querySelector('#short_fifteen').addEventListener('click',function(){
-		window.location.href = "./exam_short.jsp?type=short&score=fifteen"
+		window.location.href = "./exam_short.jsp?type=short&score=15"
 	})
 </script>

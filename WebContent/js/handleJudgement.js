@@ -10,6 +10,7 @@ modifyJudgementButtons.forEach(function(button){
 		judgementId = sum - list + 1
 		
 		document.querySelector('#submitJudgement').setAttribute('value','提交修改')
+		document.querySelector('.hint > span.text').innerText = '该卡片用于修改判断题哦'
 		document.querySelector('#judgement_form').style.display = 'block'
 		changeStyle('lightgrey','lightgrey','white')
 		var textAreas = document.querySelectorAll('#judgement_form > div > textarea')

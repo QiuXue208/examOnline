@@ -1,41 +1,78 @@
-aside > ul > li:nth-child(2) {
-	position:relative;
+*{
+	box-sizing: border-box;
 }
-aside > ul > li:nth-child(2):hover > .grade{
+aside > ul > li:nth-child(2):hover > .grades{
 	display:block;
 }
-div.grade{
+aside > ul > li:nth-child(2):hover{
+/* 	background:#DDD; */
+}
+aside > ul > li{
+	margin-bottom:27px;
+}
+aside > ul > li:nth-child(2) {
+	position:relative;
+	border: 1px solid #DDD;
+    padding: 5px 7px 5px 0;
+    border-radius: 3px;
+    background: #F4F4F4;
+}
+aside > ul > li:nth-child(2) > img{
+	position: absolute;
+    width: 9%;
+    right: 6%;
+    top: 35%;
+}
+div.grades{
 	color:black;
+	background:white;
 	display:none;
 	position:absolute;
-	width:45%;
-	right:-17%;
-	top:40%;
-	-webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.5);
-	-moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.5);
-	box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.5);
+	width:121px;
+	right:-33%;
+	top:100%;
+	border: 1px solid #DDD;
+	border-radius:3px;
 }
-div.class{
+div.classes{
 	position:absolute;
 	background:white;
 	display:none;
-	width:80%;
-	right:-56%;
-	top:0%;
-	-webkit-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
-	-moz-box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
-	box-shadow: 0px 0px 1px 0px rgba(0,0,0,0.75);
+	width:100px;
+	left:100%;
+	top:-1px;
+	border: 1px solid #DDD;
+	border-radius:3px;
 }
-div.class > div{
+.grades > div > img{
+	position: absolute;
+    width: 8%;
+    right: 7px;
+}
+.grades > div:nth-child(1) > img{
+    top: 5px;   
+}
+.grades > div:nth-child(2) > img{
+    top: 24px;   
+}
+.grades > div:nth-child(3) > img{
+    top: 43px;   
+}
+.grades > div:nth-child(4) > img{
+    top: 62px;   
+}
+div.classes > div{
 	color:black;
 }
-div.class > div:hover{
+div.classes >  div:hover{
 	color:crimson;
+	background:#DDDDDD;
 }
-div.grade > div:hover{
+div.grades > div:hover{
 	color:crimson;
+	background:#DDDDDD;
 }
-div.grade > div:hover > div.class{
+div.grades > div:hover > div.classes{
 	display:block;
 }
 

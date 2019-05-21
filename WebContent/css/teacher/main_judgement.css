@@ -26,3 +26,15 @@ div.row >  ul > li{
 	-moz-box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
 	box-shadow: 0px 0px 4px 0px rgba(0,0,0,0.75);
 }
+.main > form > .hint > span{
+	color:brown;
+	vertical-align: middle;
+	font-size:15px;
+}
+.main > form > .hint{
+	display:block;
+}
+.main > form > .hint > span > img{	
+	width:12px;
+	
+}

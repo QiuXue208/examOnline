@@ -33,6 +33,10 @@
 	<%}
 %>
 	<form class="question_form" id="selection_form" name="selectionForm" method="post">
+		<div class="hint">
+			<span><img src="../images/hint.png" alt="hint"></span>
+			<span class="text">该卡片用于添加判断题哦</span>
+		</div>
 		<div>
 			<div><span>题目</span><label>:</label></div>
 			<textarea name="title" rows="3" cols="50" placeholder="请输入题名"></textarea>

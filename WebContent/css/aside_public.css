@@ -7,13 +7,18 @@
 }
 aside > ul{
 	padding:75px 5px 15px 5px;
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:center;
 }
 aside > ul > li{
+	list-style:none;
+	width:60%;
 	cursor:pointer;
 	font-size:larger;
 	text-align:center;
-	padding:15px 10px;
-	text-decoration: underline;
+	margin:20px 0;
+/* 	text-decoration: underline; */
 }
 aside > ul > li:hover{
 	color:crimson;

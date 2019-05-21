@@ -10,8 +10,12 @@
 		ResultSet rs = connDB2.executeQuery("select * from manager where m_username = '" + username1 + "' and password = '" + password1 + "'");
 		if(rs.next()){
 %>
-		<div class="main">
+		<div class="main">			
 			<form name="form1" id="form1" action="./main_info_deal.jsp" method="post">
+				<div class="hint">
+					<span><img src="../images/hint.png" alt="hint"></span>
+					<span>该卡片用于修改管理员信息哦</span>
+				</div>			
 				<div class="username">
 					<span class="info">用户名</span><label>:</label>
 					<input type="text" class="clearEle" name="username1" value="<%=username1%>" required oninvalid="setCustomValidity('请确保用户名不为空')">
@@ -40,6 +44,7 @@
 				</div>			
 			</form>
 		</div>
+		<script src="../js/check.js"></script>
 		<script src="../js/handleDB.js"></script>
 <%
 		}else{

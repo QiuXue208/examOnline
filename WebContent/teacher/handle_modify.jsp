@@ -15,16 +15,15 @@
 
 	 
     //公共变量
-	String title = chStr.chStr(request.getParameter("title"));
-	String answer = chStr.chStr(request.getParameter("answer"));
-	String analysis = chStr.chStr(request.getParameter("analysis"));
+	String title = chStr.convertStr(chStr.chStr(request.getParameter("title")));
+	String answer = chStr.convertStr(chStr.chStr(request.getParameter("answer")));
+	String analysis = chStr.convertStr(chStr.chStr(request.getParameter("analysis")));
 	
 	if(type.equals("selection")){
-		String option_one = chStr.chStr(request.getParameter("option_one"));
-		String option_two = chStr.chStr(request.getParameter("option_two"));
-		String option_three = chStr.chStr(request.getParameter("option_three"));
-		String option_four = chStr.chStr(request.getParameter("option_four"));
-		
+		String option_one = chStr.convertStr(chStr.chStr(request.getParameter("option_one")));
+		String option_two = chStr.convertStr(chStr.chStr(request.getParameter("option_two")));
+		String option_three = chStr.convertStr(chStr.chStr(request.getParameter("option_three")));
+		String option_four = chStr.convertStr(chStr.chStr(request.getParameter("option_four")));		
 		String updateSql = "update selection set title = '" + title
 					+" ', option_one = '" + option_one
 					+" ', option_two = '" + option_two
@@ -50,6 +49,18 @@
 			out.print("<script language='javascript'>alert('信息修改成功-_-');window.location.href='./exam_judgement.jsp?type=judgement'</script>");
 		}else{
 			out.println("<script language='javascript'>alert('您的操作有误-_-');window.location.href='./exam_judgement.jsp?type=judgement'</script>");
+		}
+	}
+	if(type.equals("short")){
+		int score = Integer.parseInt(chStr.chStr(request.getParameter("score")));
+		String updateSql = "update short_" + score + " set title = '" + title
+							+"' , analysis = '" + analysis
+							+"' where ID = " + ID;
+		int result = conn.executeUpdate(updateSql);
+		if(result != 0){
+			out.print("<script language='javascript'>alert('信息修改成功-_-');window.location.href='./exam_short.jsp?type=short&score=" + score + "'</script>");
+		}else{
+			out.println("<script language='javascript'>alert('您的操作有误-_-');window.location.href='./exam_short.jsp?type=short&score=" + score + "'</script>");
 		}
 	}
 // 	if(type.equals("filling")){
@@ -103,10 +114,4 @@
 // 			out.print("<script language='javascript'>alert('您的操作有误-_-');window.location.href='./exam_filling.jsp?type=filling'</script>");
 // 		}
 // 	}
-	if(type.equals("short")){
-		
-	}
-	if(type.equals("calculation")){
-		
-	}
 %>

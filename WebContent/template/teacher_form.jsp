@@ -22,8 +22,8 @@
 		<span>电话</span><label>:</label> <input type="tel" name="tel">
 	</div>
 	<div class="buttons">
-		<input type="submit" onclick="handleSubmit()" id="teacher_submit" value="提交">
 		<input type="reset" onclick="handleReset()" value="重置">
+		<input type="submit" onclick="handleSubmit()" id="teacher_submit" value="添加">		
 		<input type="button" onclick="handleCancel()" value="取消"></input>
 	</div>
 </form>
