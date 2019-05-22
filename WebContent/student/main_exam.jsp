@@ -4,7 +4,7 @@
 <div class="main">
 	<div class="hint">
 		<span><img src="../images/hint.png" alt="hint"></span>
-		<span>请准备好再进入试卷答题，进入试卷即开始计时...</span>
+		<span>请准备好再进入试卷答题，进入试卷即开始计时，且你只有一次作答机会...</span>
 	</div>
 	<ul class="paper_type">
 		<li onclick="redirectToPaperOne()">
@@ -25,7 +25,7 @@
 </div>
 <script>
 	function redirectToPaperOne(){
-		if(window.confirm("即将进入试卷页并开始计时，一共150分钟，请预留足够时间.")){
+		if(window.confirm("你只有一次作答机会，进入试卷即开始计时，一共150分钟，请预留足够时间.")){
 			window.location.href = "./test_paper_one.jsp"
 		}		
 	}

@@ -12,7 +12,7 @@
 	aside > ul > li:nth-child(2){color:crimson;}
 </style>
 </head>
-<body>
+<body  onkeydown="noRefresh(event)">
 	<div class="banner">
 	  <div class="mask"></div>
 	</div>
@@ -27,14 +27,5 @@
 	    </div>
 		<%@ include file="../copyright.jsp" %>
 	</div>
-	<script>
-// 	document.querySelector('#commit_paper').addEventListener('click',function(){
-// 	    window.onbeforeunload = null 
-	    
-// 		document.querySelector('#commit_paper_form').setAttribute('action','./exam_result.jsp')
-// 		document.getElementById('commit_paper_form').submit()
-// 		window.close; 
-// 	})
-	</script> 
 </body>
 </html>

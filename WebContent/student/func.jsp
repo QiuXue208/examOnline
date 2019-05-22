@@ -8,7 +8,7 @@ nav {
 nav > div.timer{
 	position:absolute;
 	top:20px;
-	left:23%;
+	left:43%;
 }
 nav > div.timer > span> img{
 	height:25px;
@@ -19,7 +19,7 @@ nav > div.timer > span{
 }
 nav > div > time{
 	color:brown;
- 	font-size:22px;
+ 	font-size:25px;
 }
 </style>
 <nav>
