@@ -1,78 +1,22 @@
 *{
 	box-sizing: border-box;
 }
-aside > ul > li:nth-child(2):hover > .grades{
+aside > ul > li:nth-child(3):hover > .grades{
 	display:block;
-}
-aside > ul > li:nth-child(2):hover{
-/* 	background:#DDD; */
 }
 aside > ul > li{
 	margin-bottom:27px;
 }
-aside > ul > li:nth-child(2) {
+aside > ul > li:nth-child(3) {
 	position:relative;
 	border: 1px solid #DDD;
     padding: 5px 7px 5px 0;
     border-radius: 3px;
     background: #F4F4F4;
 }
-aside > ul > li:nth-child(2) > img{
+aside > ul > li:nth-child(3) > img{
 	position: absolute;
     width: 9%;
     right: 6%;
     top: 35%;
 }
-div.grades{
-	color:black;
-	background:white;
-	display:none;
-	position:absolute;
-	width:121px;
-	right:-33%;
-	top:100%;
-	border: 1px solid #DDD;
-	border-radius:3px;
-}
-div.classes{
-	position:absolute;
-	background:white;
-	display:none;
-	width:100px;
-	left:100%;
-	top:-1px;
-	border: 1px solid #DDD;
-	border-radius:3px;
-}
-.grades > div > img{
-	position: absolute;
-    width: 8%;
-    right: 7px;
-}
-.grades > div:nth-child(1) > img{
-    top: 5px;   
-}
-.grades > div:nth-child(2) > img{
-    top: 24px;   
-}
-.grades > div:nth-child(3) > img{
-    top: 43px;   
-}
-.grades > div:nth-child(4) > img{
-    top: 62px;   
-}
-div.classes > div{
-	color:black;
-}
-div.classes >  div:hover{
-	color:crimson;
-	background:#DDDDDD;
-}
-div.grades > div:hover{
-	color:crimson;
-	background:#DDDDDD;
-}
-div.grades > div:hover > div.classes{
-	display:block;
-}
-

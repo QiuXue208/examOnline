@@ -21,7 +21,7 @@
 	    <div class="container_top">
 			<%@ include file="./aside.jsp"%>
 			<div class="container_right">
-				<%@ include file="./main_score.jsp"%>
+				<%@ include file="./main_review.jsp"%>
 			</div>		    
 	    </div>
 		<%@ include file="../copyright.jsp" %>

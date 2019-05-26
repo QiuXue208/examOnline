@@ -11,14 +11,14 @@
 		if(rs.next()){
 %>
 		<div class="main">			
-			<form name="form1" id="form1" action="./main_info_deal.jsp" method="post">
+			<form name="form1" id="formM" action="./main_info_deal.jsp" method="post">
 				<div class="hint">
 					<span><img src="../images/hint.png" alt="hint"></span>
 					<span>该卡片用于修改管理员信息哦</span>
 				</div>			
 				<div class="username">
 					<span class="info">用户名</span><label>:</label>
-					<input type="text" class="clearEle" name="username1" value="<%=username1%>" required oninvalid="setCustomValidity('请确保用户名不为空')">
+					<input type="text" class="clearEle" readonly="readonly" name="username1" value="<%=username1%>" required oninvalid="setCustomValidity('请确保用户名不为空')">
 				</div>
 				<div class="password">
 					<span class="info">密码</span><label>:</label>
@@ -40,7 +40,7 @@
 				</div>
 				<div class="submit">
 					<input type="button" value="重新填写" onclick="clearAll()">
-					<input type="submit" value="修改信息">
+					<input type="button" value="修改信息" onclick="submitInfo()">
 				</div>			
 			</form>
 		</div>

@@ -4,7 +4,7 @@
 <div class="main">
 	<div class="hint">
 		<span><img src="../images/hint.png" alt="hint"></span>
-		<span>请准备好再进入试卷答题，进入试卷即开始计时，且你只有一次作答机会...</span>
+		<span>你只有一次作答机会...请预留150分钟，进入试卷即开始计时</span>
 	</div>
 	<ul class="paper_type">
 		<li onclick="redirectToPaperOne()">

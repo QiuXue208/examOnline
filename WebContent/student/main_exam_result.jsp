@@ -4,7 +4,9 @@
 <jsp:useBean id="ChStr" scope="page" class="tools.chStr" />
 <jsp:useBean id="connR" scope="page" class="tools.ConnDB" />
 <link rel="icon" href="../images/title.png" type="image/x-icon">
+<link rel="stylesheet" href="../css/paper.css">
 <link rel="stylesheet" href="../css/student/main_exam_result.css">
+
 <title>柚子考试系统</title>
 
 <div class="main">
@@ -27,9 +29,9 @@
 	String shortTenI = "";
 	String shortFifteenI = "";
 %>
+<div class="container">
 	<div class="selectionContainer">
-		<h2>
-			一、选择题，总计得分<%=selectionScore%></h2>
+		<h3>一、选择题，总计得分<%=selectionScore%></h3>
 		<%for(int i=1;i<=10;i++){
 			//得到选择题答案
 			selections[i-1] = ChStr.chStr(request.getParameter("sradio" + i));	
@@ -37,13 +39,6 @@
 			while(rs_s.next()){
 				selection_ID = rs_s.getInt("s"+i+"_ID");
 			}
-			//将用户选择答案插入到数据库中
-			selectionI = "insert into answer_selection ([user],selection_ID,answer) values ('"
-					+ loginUser + "',"
-					+ selection_ID + ",'"
-					+ selections[i-1]
-					+ "')";
-			connR.executeUpdate(selectionI);
 			//获取selection表的数据
 			ResultSet rs = connR.executeQuery("select * from selection where ID = " + selection_ID);
 			while(rs.next()){
@@ -51,7 +46,7 @@
 					selectionScore += 2;
 				}%>
 				<ul class="selectionRow row_<%=i%>">
-					<li><%=i%>、<%=rs.getString("title")%></li>
+					<li><b><%=i%></b>、<%=rs.getString("title")%></li>
 					<li>
 						<div>
 							<input type="radio" class="option1" name="sradio<%=i%>" value="A"><span>A、<%=rs.getString(3)%></span>
@@ -66,15 +61,35 @@
 							<input type="radio" class="option4" name="sradio<%=i%>" value="D"><span>D、<%=rs.getString(6)%></span>
 						</div>
 					</li>
-					<li>答案：<%=rs.getString("answer") %></li>
+					<%
+					if(selections[i-1].equals(rs.getString("answer"))){%>
+						<li>答案：<%=rs.getString("answer") %></li>
+					<%}else{%>
+						<li style="color:crimson;">答案：<%=rs.getString("answer") %></li>
+					<%}%>					
 					<li class="analysis"><span>查看解析</span>
 					<div><%=rs.getString("analysis") %></div></li>
 				</ul>
 		   <%}
-		}%>
+		}
+		//将选择题的答案插入到数据库中
+		selectionI = "insert into answer_selection ([user],answer1,answer2,answer3,answer4,answer5,answer6,answer7,answer8,answer9,answer10) values ('"
+				+ loginUser + "','"
+				+ selections[0] + "','"
+				+ selections[1] + "','"
+				+ selections[2] + "','"
+				+ selections[3] + "','"
+				+ selections[4] + "','"
+				+ selections[5] + "','"
+				+ selections[6] + "','"
+				+ selections[7] + "','"
+				+ selections[8] + "','"
+				+ selections[9] + "')";
+		connR.executeUpdate(selectionI);
+		%>
 	</div>
 	<div class="judgementContainer">
-		<h2>二、判断题，总计得分<%=judgementScore%></h2>
+		<h3>二、判断题，总计得分<%=judgementScore%></h3>
 		<%	//得到判断题答案并插入到数据库中
 		for(int j=1;j<=10;j++){
 			//获取到用户判断题的答案
@@ -90,18 +105,24 @@
 					judgementScore += 2;
 				}%>
 				<ul class="judgementRow row_<%=j%>">
-					<li><%=j%>、<%=rs.getString("title")%></li>
+					<li><b><%=j%></b>、<%=rs.getString("title")%></li>
 					<li>
 						<input type="radio" name="jradio<%=j%>" class="option1" value="true"><span>true</span> 
 						<input type="radio" name="jradio<%=j%>" class="option2" value="false"><span>false</span>
 					</li>
-					<li class="answer">答案：<span><%=rs.getString("answer")%></span></li>
+					<%
+					if(judgements[j-1].equals(rs.getString("answer").trim())){%>
+						<li class="answer">答案：<%=rs.getString("answer")%></li>
+					<%}else{%>
+						<li class="answer" style="color:crimson;">答案：<%=rs.getString("answer")%></li>
+					<%}%>
+					
 					<li class="analysis"><span>查看解析</span>
 					<div><%=rs.getString("analysis") %></div></li>
 				</ul>
 		  <%}			
 		}
-		//将判断题的ID、答案插入到数据库中
+		//将判断题答案插入到数据库中
 		judgementI = "insert into answer_judgement ([user],answer1,answer2,answer3,answer4,answer5,answer6,answer7,answer8,answer9,answer10) values ('"
 				+ loginUser + "','"
 				+ judgements[0] + "','"
@@ -117,10 +138,10 @@
 		connR.executeUpdate(judgementI);
 		%>
 	</div>
-	<div calss="shortContainer">
-		<h2>三、简答题，这部分将由老师批改，请耐心等待。</h2>
+	<div class="shortContainer">
+		<h3>三、简答题，这部分将由老师批改，请耐心等待。</h3>
 		<div class="shortFive">
-			<%
+		<%
 		//5分
 		for(int i=1;i<=5;i++){
 			//获取用户输入的答案
@@ -130,18 +151,10 @@
 			while(rs_5.next()){
 				short_ID = rs_5.getInt("c"+i+"_ID");
 			}
-			//将用户输入答案、题的分值以及ID插入到数据库中
-			shortFiveI = "insert into answer_short ([user],short_ID,score,answer) values ('"
-						+ loginUser + "',"
-						+ short_ID + ","
-						+ 5 + ",'"
-						+ shorts[i-1]
-						+"')";
-			connR.executeUpdate(shortFiveI);
 			ResultSet rs = connR.executeQuery("select * from short_5 where ID = " + short_ID);
 			while(rs.next()){%>
 			<ul class="shortFiveRow row_<%=i%>">
-				<li><%=i%>、<%=rs.getString("title")%><span>(5分)</span></li>
+				<li><b><%=i%></b>、<%=rs.getString("title")%><span>(5分)</span></li>
 				<li><span>你的答案:</span>
 					<div class="answer"><%=shorts[i-1]%></div></li>
 				<li class="analysis"><span>查看解析</span>
@@ -149,7 +162,16 @@
 			</ul>
 			<%}
 		}
-	%>
+		//将用户输入答案插入到数据库中
+		shortFiveI = "insert into answer_short_5 ([user],answer1,answer2,answer3,answer4,answer5) values ('"
+					+ loginUser + "','"
+					+ shorts[0] + "','"
+					+ shorts[1] + "','"
+					+ shorts[2] + "','"
+					+ shorts[3] + "','"
+					+ shorts[4] + "')";
+		connR.executeUpdate(shortFiveI);
+		%>
 		</div>
 		<div class="shortTen">
 			<%	//10分
@@ -159,24 +181,24 @@
 				while(rs_10.next()){
 					short_ID = rs_10.getInt("c"+i+"_ID");
 				}
-				shortTenI = "insert into answer_short ([user],short_ID,score,answer) values ('"
-							+ loginUser + "',"
-							+ short_ID + ","
-							+ 10 + ",'"
-							+ shorts[i+4]
-							+"')";
-				connR.executeUpdate(shortTenI);
 				ResultSet rs = connR.executeQuery("select * from short_10 where ID = " + short_ID);
 				while(rs.next()){%>
 				<ul class="shortTenRow row_<%=i+5%>">
-					<li><%=i+5%>、<%=rs.getString("title")%><span>(10分)</span></li>
+					<li><b><%=i+5%></b>、<%=rs.getString("title")%><span>(10分)</span></li>
 					<li><span>你的答案:</span>
 						<div class="answer"><%=shorts[i+4]%></div></li>
 					<li class="analysis"><span>查看解析</span>
 						<div><%=rs.getString("analysis") %></div></li>
 				</ul>
 				<%}
-			}%>
+			}
+			//将用户输入插入到数据库中
+			shortTenI = "insert into answer_short_10 ([user],answer1,answer2) values ('"
+					+ loginUser + "','"
+					+ shorts[5] + "','"
+					+ shorts[6] + "')";
+			connR.executeUpdate(shortTenI);
+			%>
 		</div>
 		<div class="shortFifteen">
 			<%	//15分
@@ -185,28 +207,27 @@
 			while(rs_15.next()){
 				short_ID = rs_15.getInt("c1_ID");
 			}
-			shortFifteenI = "insert into answer_short ([user],short_ID,score,answer) values ('"
-					+ loginUser + "',"
-					+ short_ID + ","
-					+ 15 + ",'"
-					+ shorts[7]
-					+"')";
-			connR.executeUpdate(shortFifteenI);
 			ResultSet rs = connR.executeQuery("select * from short_15 where ID = " + short_ID);
 			while(rs.next()){%>
-			<ul class="shortFifteenRow row_8">
-				<li>8、<%=rs.getString("title")%><span>(15分)</span></li>
-				<li><span>你的答案:</span>
-					<div class="answer"><%=shorts[7]%></div></li>
-				<li class="analysis"><span>查看解析</span>
-					<div><%=rs.getString("analysis") %></div></li>
-			</ul>
+				<ul class="shortFifteenRow row_8">
+					<li><b>8</b>、<%=rs.getString("title")%><span>(15分)</span></li>
+					<li><span>你的答案:</span>
+						<div class="answer"><%=shorts[7]%></div></li>
+					<li class="analysis"><span>查看解析</span>
+						<div><%=rs.getString("analysis") %></div></li>
+				</ul>
 			<%}
-		%>
+			//将用户输入插入数据库中
+			shortFifteenI = "insert into answer_short_15 ([user],answer1) values ('"
+					+ loginUser + "','"
+					+ shorts[7] + "')";
+			connR.executeUpdate(shortFifteenI);
+		 %>
 		</div>
 	</div>
 <%
-	String scoreSql = "insert into score ([user],selection_score,judgement_score,short_5_score,short_10_score,short_15_score,all_score,complete) values('"
+    //将成绩插入数据库中
+	String scoreSql = "insert into score values('"
 					+ loginUser
 					+"'," + selectionScore
 					+"," + judgementScore
@@ -214,10 +235,11 @@
 					+"," + 0
 					+"," + 0
 					+"," + (selectionScore+judgementScore)
-					+"," + "false"
+					+"," + 0
 					+")";
 	connR.executeUpdate(scoreSql);
 %>
+</div>
 </div>
 <script>
 	//选择题、获取用户的选择
@@ -232,7 +254,7 @@
 			document.querySelector('.selectionRow.row_'+<%=i%>+' input.option4').setAttribute('checked',true)
 		<%}
 	}%>
-	document.querySelector('.selectionContainer > h2').innerText = '一、选择题，总计得分<%=selectionScore%>分'
+	document.querySelector('.selectionContainer > h3').innerText = '一、选择题，总计得分<%=selectionScore%>分'
 	
 	//判断题，设置用户选择
 	<%for(int i=1;i<=10;i++){
@@ -257,5 +279,5 @@
 			
 		})
 	})
-	document.querySelector('.judgementContainer > h2').innerText = ' 二、判断题，总计得分' + <%=judgementScore%> + '分 '
+	document.querySelector('.judgementContainer > h3').innerText = ' 二、判断题，总计得分' + <%=judgementScore%> + '分 '
 </script>

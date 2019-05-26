@@ -1,0 +1,52 @@
+div.grades{
+	color:black;
+	background:white;
+	display:none;
+	position:absolute;
+	width:121px;
+	right:-33%;
+	top:100%;
+	border: 1px solid #DDD;
+	border-radius:3px;
+}
+div.classes{
+	position:absolute;
+	background:white;
+	display:none;
+	width:100px;
+	left:100%;
+	top:-1px;
+	border: 1px solid #DDD;
+	border-radius:3px;
+}
+.grades > div > img{
+	position: absolute;
+    width: 8%;
+    right: 7px;
+}
+.grades > div:nth-child(1) > img{
+    top: 5px;   
+}
+.grades > div:nth-child(2) > img{
+    top: 24px;   
+}
+.grades > div:nth-child(3) > img{
+    top: 43px;   
+}
+.grades > div:nth-child(4) > img{
+    top: 62px;   
+}
+div.classes > div{
+	color:black;
+}
+div.classes >  div:hover{
+	color:crimson;
+	background:#DDDDDD;
+}
+div.grades > div:hover{
+	color:crimson;
+	background:#DDDDDD;
+}
+div.grades > div:hover > div.classes{
+	display:block;
+}

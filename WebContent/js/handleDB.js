@@ -9,6 +9,11 @@ function clearAll(e) {
 	   clearElements[i].value = ''
    }
 }
+function submitInfo(){
+	if(confirm("确认修改信息吗？")){
+		document.querySelector('#formM').submit()
+	}
+}
 var id
 var user
 //点击修改学生信息时改变样式

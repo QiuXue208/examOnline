@@ -1,0 +1,92 @@
+button.dropdown{
+    border: 1px solid #DDD;
+    padding: 3px 0;
+    background: white;
+    outline: none;
+    border-radius: 3px;
+}
+aside img{width:7px;}
+button.dropdown > img{margin-left:7px;}
+aside > ul > li:nth-child(3){position:relative;}
+aside > ul > li{width:70%;color:black;}
+aside > ul > li:hover{color:black;}
+.selector{
+	border: 1px solid #DDD;
+    background: white;
+    position: absolute;
+    z-index:1;
+    top: 100%;
+    left: 18%;
+    width: 115px;
+    border-radius:3px;
+    display:none;
+}
+.selector > div{
+	padding:5px 0;
+}
+.selector > .users:hover,
+.selector > .scores:hover{
+	color:crimson;
+	background:#DDD;
+}
+.selector > .users:hover .grades,
+.selector > .scores:hover > .scoreValue{
+	display:block;
+}
+div.grades > div:hover > div.classes{
+	display:block;
+}
+div.grades{
+	color:black;
+	background:white;
+	display:none;
+	position:absolute;
+	width:121px;
+	left:100%;
+	top:0;
+	border: 1px solid #DDD;
+	border-radius:3px;
+}
+div.classes{
+	color:black;
+	position:absolute;
+	background:white;
+	display:none;
+	width:100px;
+	left:100%;
+	top:0;
+	border: 1px solid #DDD;
+	border-radius:3px;
+}
+.grade2 > .classes{top:25%;}
+.grade3 > .classes{top:50%;}
+.grade4 > .classes{top:75%;}
+.grades > div > img{
+	position: absolute;
+    width: 8%;
+    right: 7px;
+}
+.grades > div:nth-child(1) > img{top: 5px;}
+.grades > div:nth-child(2) > img{top: 24px;}
+.grades > div:nth-child(3) > img{top: 43px;}
+.grades > div:nth-child(4) > img{ top: 62px;}
+
+div.grades > div:hover,
+div.scoreValue > div:hover,
+div.classes >  div:hover
+{
+	color:crimson;
+	background:#DDDDDD;
+}
+.scoreValue{
+	color:black;
+    position: absolute;
+    z-index:1;
+    border: 1px solid #DDD;
+    background: white;
+    border-radius: 3px;
+    top: 50%;
+    left: 100%;
+    width: 121px;
+   	display:none;
+}

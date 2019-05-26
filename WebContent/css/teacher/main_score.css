@@ -1,4 +1,19 @@
-div.main{
-	width:100%;
-	height:100%;
+.clearfix::after{content:"";display:block;clear:both;}
+div.main{width:100%;height:100%;}
+div.userInfoContainer li{list-style:none;width:10%;text-align:center;}
+div.userInfoContainer ul{display:flex;align-items:center;margin:5px 0;}
+ul.header{padding:10px 0;}
+ul.header > li{font-size:15px;}
+.review{
+	color:crimson;
+	cursor: pointer;
+	font-weight:bold;
+}
+.review:hover{
+	text-decoration: underline;
+}
+.userInfos > .hint{
+	margin-top: 70px;
+    text-align: center;
+    font-size: 17px;
 }

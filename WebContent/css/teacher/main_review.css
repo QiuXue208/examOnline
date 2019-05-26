@@ -1,0 +1,14 @@
+div.main{
+	width:100%;
+	height:100%;
+	overflow-y:scroll;
+}
+div.main li{list-style:none;}
+.selectionContainer,
+.judgementContainer{
+	display:none;
+}
+.complete > span{
+	cursor: pointer;
+	color:crimson;	
+}

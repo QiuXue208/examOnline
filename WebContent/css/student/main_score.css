@@ -2,3 +2,27 @@ div.main{
 	width:100%;
 	height:100%;
 }
+div.main > div.hint{
+	margin-top:50px;
+	text-align: center;
+	color:brown;
+}
+.hint > span > img{
+	width:13px;
+}
+.hint > span:nth-child(1){
+	vertical-align:middle;
+}
+.hint > span:nth-child(2){
+	font-size:15px;
+}
+div.check{
+	text-align: center;
+	margin-top:10px;
+	cursor: pointer;	
+	font-size:17px;
+	color:#1a0dab;
+}
+div.check:hover{
+	text-decoration: underline;	
+}
