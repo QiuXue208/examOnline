@@ -14,6 +14,7 @@ div.main{
 	justify-content: space-between;
 }
 #teacher_main > ul > li{
+	cursor:pointer;
 	list-style:none;
 	width:40%;
 	height:25%;

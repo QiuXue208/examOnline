@@ -77,7 +77,7 @@ body{
 	position: absolute;
     height: 70%;
     top: 17%;
-    right: 21%;
+    right: 22%;
 }
 #form > .eye_container > #set_pass{
 	position: absolute;
@@ -93,4 +93,7 @@ body{
 }
 #eye:hover + #set_pass{
 	opacity:1;
+}
+sup{
+	color:red;
 }

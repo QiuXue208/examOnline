@@ -7,11 +7,11 @@
 <title>柚子考试系统</title>
 <%
 try{
-	String username = chStr.chStr(request.getParameter("username1"));
-	String password = chStr.chStr(request.getParameter("password1"));
-	String truename = chStr.chStr(request.getParameter("name1"));
-	String email = chStr.chStr(request.getParameter("email1"));
-	String tel = chStr.chStr(request.getParameter("phone1"));
+	String username = chStr.chStr(request.getParameter("username"));
+	String password = chStr.chStr(request.getParameter("password"));
+	String truename = chStr.chStr(request.getParameter("name"));
+	String email = chStr.chStr(request.getParameter("email"));
+	String tel = chStr.chStr(request.getParameter("phone"));
 	String level = chStr.chStr(request.getParameter("level"));
 	ResultSet rs = conn_teacher.executeQuery("select * from teacher where t_username = '" + (String)session.getAttribute("username") + "'");
 	while(rs.next()){

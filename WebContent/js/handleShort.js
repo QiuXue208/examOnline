@@ -17,17 +17,17 @@ modifyShortButtons.forEach(function(button){
 		changeStyle('lightgrey','lightgrey','white')
 		var textAreas = document.querySelectorAll('#short_form > div > textarea')
 		var contents = document.querySelectorAll('.row_' + list + '> ul > li > span')
-		for(let i=0;i<2;i++){
+		for(let i=0;i<3;i++){
 			textAreas[i].value = contents[i].innerText
 		}
 		if(score === 5){
-			textAreas[2].value = 5
+			textAreas[3].value = 5
 		}
 		if(score === 10){
-			textAreas[2].value = 10
+			textAreas[3].value = 10
 		}
 		if(score === 15){
-			textAreas[2].value = 15
+			textAreas[3].value = 15
 		}
 	})
 })
@@ -45,13 +45,41 @@ deleteShortButtons.forEach(function(button){
 	})
 })
 //提交
-document.querySelector('#submitShort').addEventListener('click',function(e){
-	if(e.target.value === '提交修改'){
-		document.querySelector('#short_form').setAttribute('action','./handle_modify.jsp?type=short&ID=' + shortId)
-		document.querySelector('#short_form').submit()
+function handleShortForm(form){
+	var score = parseInt(form.score.value.replace(/\s*/g,""))
+	if(form.title.value===''){
+		alert('请输入题目!')
+		form.title.focus()
+		return
 	}
-	if(e.target.value === '添加试题'){
-		document.querySelector('#short_form').setAttribute('action','./handle_add.jsp?type=short')
-		document.querySelector('#short_form').submit()
+	if(form.score.value===''){
+		alert('请输入分值!')
+		form.score.focus()
+		return
+	}	
+	
+	if(score!==5&&score!==10&score!==15){
+		alert('分值只能为5或10或15！')
+		form.score.focus()
+		return
 	}
-})
+	if(form.commit.value==='提交修改'){
+		form.setAttribute('action','./handle_modify.jsp?type=short&ID=' + shortId)
+		form.submit()
+	}
+	if(form.commit.value==='添加试题'){
+		form.setAttribute('action','./handle_add.jsp?type=short')
+		form.submit()
+	}
+}
+//提交
+//document.querySelector('#submitShort').addEventListener('click',function(e){
+//	if(e.target.value === '提交修改'){
+//		document.querySelector('#short_form').setAttribute('action','./handle_modify.jsp?type=short&ID=' + shortId)
+//		document.querySelector('#short_form').submit()
+//	}
+//	if(e.target.value === '添加试题'){
+//		document.querySelector('#short_form').setAttribute('action','./handle_add.jsp?type=short')
+//		document.querySelector('#short_form').submit()
+//	}
+//})

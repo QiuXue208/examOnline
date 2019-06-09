@@ -9,7 +9,6 @@ div.main{
 .shortTenRow > li.analysis >span,
 .shortFifteenRow > li.analysis >span
 {
-	color:brown;
 	cursor: pointer;
 }
 .selectionRow > li.analysis >div,
@@ -18,5 +17,15 @@ div.main{
 .shortTenRow > li.analysis >div,
 .shortFifteenRow > li.analysis >div{
 	display:none;
+}
+.resultReturn{
+    background: #D4D8C7;
+    border: none;
+    padding: 3px 20px;
+    border-radius: 1px;
+    color: brown;
+    outline: none;
+    margin-left: 45%;
+    margin-bottom: 10px;
 }
  

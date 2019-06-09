@@ -23,7 +23,8 @@
 		String option_one = chStr.convertStr(chStr.chStr(request.getParameter("option_one")));
 		String option_two = chStr.convertStr(chStr.chStr(request.getParameter("option_two")));
 		String option_three = chStr.convertStr(chStr.chStr(request.getParameter("option_three")));
-		String option_four = chStr.convertStr(chStr.chStr(request.getParameter("option_four")));		
+		String option_four = chStr.convertStr(chStr.chStr(request.getParameter("option_four")));	
+		answer = answer.toUpperCase();
 		String updateSql = "update selection set title = '" + title
 					+" ', option_one = '" + option_one
 					+" ', option_two = '" + option_two
@@ -40,6 +41,13 @@
 		}
 	}
 	if(type.equals("judgement")){
+		answer = answer.toLowerCase();
+		if(answer.equals("t")){
+			answer = "true";
+		}
+		if(answer.equals("f")){
+			answer = "false";
+		}
 		String updateSql = "update judgement set title = '" + title
 					+"' , answer = '" + answer
 					+"' , analysis = '" + analysis
@@ -55,6 +63,7 @@
 		int score = Integer.parseInt(chStr.chStr(request.getParameter("score")));
 		String updateSql = "update short_" + score + " set title = '" + title
 							+"' , analysis = '" + analysis
+							+"',answer = '" + answer
 							+"' where ID = " + ID;
 		int result = conn.executeUpdate(updateSql);
 		if(result != 0){

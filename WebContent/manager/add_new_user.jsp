@@ -11,51 +11,60 @@
 	String user = query.getQueryPara(request.getQueryString())[0];
 // 	int id = Integer.parseInt(query.getQueryPara(request.getQueryString())[1]);
 	
-	String username = chStr.chStr(request.getParameter("username"));
+	String username = chStr.chStr(request.getParameter("username"));	
+	int id = Integer.parseInt(username.substring(1));
 	String password = chStr.chStr(request.getParameter("password"));
-	String email = chStr.chStr(request.getParameter("email"));
+// 	String email = chStr.chStr(request.getParameter("email"));
 	String truename = chStr.chStr(request.getParameter("truename"));
-	String tel = chStr.chStr(request.getParameter("tel"));
+// 	String tel = chStr.chStr(request.getParameter("tel"));
 	
 	if(user.equals("teacher")){
+		ResultSet rs1 = conn.executeQuery("select t_username from teacher where t_username = '"+username+"'");
+		if(rs1.next()){
+			out.print("<script>alert('用户名重复，请重新添加！');window.location.href='../manager/management_teacher.jsp?user=teacher'</script>");
+		}
 		String level = chStr.chStr(request.getParameter("level"));
-		int id = Integer.parseInt(username.substring(1));
-		String teacherStr = "insert into teacher (ID,t_username,password,truename,email,phone_number,level) values ("
+// 		int id = Integer.parseInt(username.substring(1));
+		String teacherStr = "insert into teacher (ID,t_username,password,truename,level) values ("
 							+ id
 							+ ",'" + username
 							+ "','" + password
 							+ "','" + truename
-							+ "','" + email
-							+ "','" + tel
+// 							+ "','" + email
+// 							+ "','" + tel
 							+ "','" + level
 							+ "')";
 
 		int result = conn.executeUpdate(teacherStr);
 		if(result != 0){
-			response.sendRedirect("../manager/management_teacher.jsp");
+			out.print("<script>alert('添加成功！');window.location.href='../manager/management_teacher.jsp?user=teacher'</script>");
+// 			response.sendRedirect("../manager/management_teacher.jsp");
 		}
 	}
 	if(user.equals("student")){
+
 		String gradeStr = chStr.chStr(request.getParameter("grade"));
 	    String classStr = chStr.chStr(request.getParameter("class"));
 		int grade = Integer.parseInt(gradeStr);
 		int classes = Integer.parseInt(classStr);
-		int id = Integer.parseInt(username.substring(1));
-		String teacherStr = "insert into student (ID,s_username,password,truename,email,phone_number,class,grade,score) values ("
+		ResultSet rs1 = conn.executeQuery("select s_username from student where s_username = '"+username+"'");
+		if(rs1.next()){
+			String url = "../manager/management_student.jsp?grade="+grade+"&class="+classes + "&user=student";
+			out.print("<script>alert('用户名重复，请重新添加！');window.location.href='"+url +"'</script>");
+		}
+		String teacherStr = "insert into student (ID,s_username,password,truename,class,grade) values ("
 							+ id
 							+ ",'" + username
 							+ "','" + password
 							+ "','" + truename
-							+ "','" + email
-							+ "','" + tel
 							+ "'," + classes
 							+ "," + grade
-							+ "," + 0
 							+ ")"; 
 
 		int result = conn.executeUpdate(teacherStr);
 		if(result != 0){
-			response.sendRedirect("../manager/management_student.jsp?grade="+grade+"&class="+classes);
+			String url = "../manager/management_student.jsp?grade="+grade+"&class="+classes + "&user=student";
+			out.print("<script>alert('添加成功！');window.location.href='"+url +"'</script>");
 		}
 	}
 %>

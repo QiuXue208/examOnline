@@ -37,6 +37,10 @@
 	int short15ID = 0;
 	String userc15Answer = "";
 	String short15Analysis = "";
+	for(int i=0;i<10;i++){
+		userjAnswer[i] = "";
+		usersAnswer[i] = "";
+	}
 
 	ResultSet rs = connS.executeQuery("select * from question_selection where [user]='"+loginUser +"'");
 	while(rs.next()){
@@ -116,8 +120,9 @@
 	}
 	
     ResultSet rs6 = connS.executeQuery("select * from complete_user where [user] = '"+ loginUser +"'");
-    if(!rs6.next()){%>
-    	<div>你还未参加考试</div>
+    if(!rs6.next()){
+    System.out.print(1);%>
+    	<div class="unfinished"><span>你还未参加考试哦！</span><a href="./exam.jsp">点我参加考试</a></div>
     <%}else{
     	ResultSet rs_c = connS.executeQuery("select * from score where [user] = '"+loginUser +"'");
     	while(rs_c.next()){
@@ -137,7 +142,7 @@
 		<%}%>
     	<div class="container">
 			<div class="selectionContainer">
-				<h3>一、选择题，共计得分<%=selectionScore %>分</h3>
+				<h3>一、选择题，共计得分<%=selectionScore %>分。</h3>
 				<%				
 				for(int i=0;i<10;i++){
 					ResultSet rs7 = connS.executeQuery("select * from selection where ID=" + selectionsID[i]);
@@ -160,17 +165,19 @@
 							</li>
 							<%if(rs7.getString("answer").equals(usersAnswer[i])){%>
 								<li>答案： <%=rs7.getString("answer") %></li>
+								<li class="analysis"><span>查看解析</span><div><%=selectionsAnalysis[i]%></div></li>
 							<%}else{%>
 							    <li style="color:crimson;">答案： <%=rs7.getString("answer") %></li>
+							    <li style="color:brown;" class="analysis"><span>查看解析</span><div><%=selectionsAnalysis[i]%></div></li>
 							<%}%>
-							<li class="analysis"><span>查看解析</span><div><%=selectionsAnalysis[i]%></div></li>														
+																					
 						</ul>	
 					<%}
 				}
 				%>					
 			</div>				
 			<div class="judgementContainer">
-				<h3>二、判断题，共计得分<%=judgementScore %>分</h3>	
+				<h3>二、判断题，共计得分<%=judgementScore %>分。</h3>	
 				<%
 				for(int i=0;i<10;i++){
 					ResultSet rs8 = connS.executeQuery("select * from judgement where ID = " + judgementsID[i]);
@@ -183,17 +190,19 @@
 						</li>
 						<%if((rs8.getString("answer").trim()).equals(userjAnswer[i])){%>
 								<li>答案： <%=rs8.getString("answer") %></li>
+								<li class="analysis"><span>查看解析</span><div><%=judgementsAnalysis[i]%></div></li>
 						<%}else{%>
 							    <li style="color:crimson;">答案： <%=rs8.getString("answer") %></li>
+							    <li style="color:brown;" class="analysis"><span>查看解析</span><div><%=judgementsAnalysis[i]%></div></li>
 						<%}%>
-						<li class="analysis"><span>查看解析</span><div><%=judgementsAnalysis[i]%></div></li>	
+							
 					</ul>
 					<%}
 				}%>	
 			</div>
 			<div class="shortContainer">
 			<%if(complete == 0){%>
-				<h3>三、简答题,请耐心等待老师阅卷</h3>
+				<h3>三、简答题,请耐心等待老师阅卷。</h3>
 			<%}if(complete == 1){%>
 				<h3>三、简答题，共计得分<%=short5Score+short10Score+short15Score %>分，其中5分值共<%=short5Score %>分，10分值共<%=short10Score %>分，15分值共<%=short15Score %>分</h3>
 			<%}%>
@@ -204,7 +213,7 @@
 					while(rs9.next()){%>
 					<ul class="shortFiveRow row_<%=i+1%>">
 						<li><b><%=i+1%></b>、<%=rs9.getString("title")%><span>(5分)</span></li>
-						<li><span>学生答案:</span>
+						<li><span>答:</span>
 							<div class="answer"><%=userc5Answer[i]%></div>
 						</li>
 						<li class="analysis"><span>查看解析</span><div><%=short5Analysis[i] %></div></li>
@@ -219,7 +228,7 @@
 					while(rs10.next()){%>
 					<ul class="shortTenRow row_<%=i+6%>">
 						<li><b><%=i+6%></b>、<%=rs10.getString("title")%><span>(10分)</span></li>
-						<li><span>学生答案:</span><div class="answer"><%=userc10Answer[i]%></div></li>
+						<li><span>答:</span><div class="answer"><%=userc10Answer[i]%></div></li>
 						<li class="analysis"><span>查看解析</span><div><%=short10Analysis[i] %></div></li>
 					</ul>
 					<%}
@@ -232,7 +241,7 @@
 				while(rs12.next()){%>
 					<ul class="shortFifteenRow row_8">
 						<li><b>8</b>、<%=rs12.getString("title") %><span>(15分)</span></li>
-						<li><span>你的答案:</span>
+						<li><span>答:</span>
 							<div class="answer"><%=userc15Answer%></div>
 						</li>
 						<li class="analysis"><span>查看解析</span><div><%=short15Analysis%></div></li>
@@ -240,29 +249,33 @@
 				<%}%>				
 				</div>
 			</div>
+		<button class="resultReturn" onclick="resultReturn()">返回</button>
 		</div>
 	    <%}%>
 </div>
 <script>
+	function resultReturn(){
+		window.location.href='./exam.jsp'
+	}
 	//选择题、获取用户的选择
-	<%for(int i=1;i<=10;i++){
-		if("A".equals(usersAnswer[i-1])){%>
-			document.querySelector('.selectionRow.row_'+<%=i%>+' input.option1').setAttribute('checked',true)
-		<%}if("B".equals(usersAnswer[i-1])){%>
-			document.querySelector('.selectionRow.row_'+<%=i%>+' input.option2').setAttribute('checked',true)
-		<%}if("C".equals(usersAnswer[i-1])){%>
-			document.querySelector('.selectionRow.row_'+<%=i%>+' input.option3').setAttribute('checked',true)
-		<%}if("D".equals(usersAnswer[i-1])){%>
-			document.querySelector('.selectionRow.row_'+<%=i%>+' input.option4').setAttribute('checked',true)
+	<%for(int i=0;i<10;i++){
+		if("A".equals(usersAnswer[i])){%>
+			document.querySelector('.selectionRow.row_'+<%=i+1%>+' input.option1').setAttribute('checked',true)
+		<%}if("B".equals(usersAnswer[i])){%>
+			document.querySelector('.selectionRow.row_'+<%=i+1%>+' input.option2').setAttribute('checked',true)
+		<%}if("C".equals(usersAnswer[i])){%>
+			document.querySelector('.selectionRow.row_'+<%=i+1%>+' input.option3').setAttribute('checked',true)
+		<%}if("D".equals(usersAnswer[i])){%>
+			document.querySelector('.selectionRow.row_'+<%=i+1%>+' input.option4').setAttribute('checked',true)
 		<%}
 	}%>
 	
 	//判断题，设置用户选择
-	<%for(int i=1;i<=10;i++){
-		if(userjAnswer[i-1].equals("true")){%>
-			document.querySelector('.judgementRow.row_'+<%=i%>+' input.option1').setAttribute('checked',true)
-		<%}if(userjAnswer[i-1].equals("false")){%>
-			document.querySelector('.judgementRow.row_'+<%=i%>+' input.option2').setAttribute('checked',true)
+	<%for(int i=0;i<10;i++){
+		if(userjAnswer[i].equals("true")){%>
+			document.querySelector('.judgementRow.row_'+<%=i+1%>+' input.option1').setAttribute('checked',true)
+		<%}if(userjAnswer[i].equals("false")){%>
+			document.querySelector('.judgementRow.row_'+<%=i+1%>+' input.option2').setAttribute('checked',true)
 		<%}
 	}%>
 	//查看解析

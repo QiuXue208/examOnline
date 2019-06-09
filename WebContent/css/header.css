@@ -11,7 +11,7 @@ header{
 header > div.user{
     display:flex;
 	align-items:center;
-	height:35%;	
+/* 	height:35%;	 */
 	position:relative;
 	cursor: pointer;
 }
@@ -19,7 +19,7 @@ div.user:hover > div.logout{
 	display:block;
 }
 header > div.user > img{
-	height:100%;
+	width:25px;
 }
 header > h1{
 	letter-spacing:10px;

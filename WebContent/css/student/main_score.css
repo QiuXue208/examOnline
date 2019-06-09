@@ -2,6 +2,12 @@ div.main{
 	width:100%;
 	height:100%;
 }
+div.main>.unfinished{
+/* 	color:crimson; */
+	font-size: 17px;
+    margin-top: 10%;
+    margin-left: 30%;
+}
 div.main > div.hint{
 	margin-top:50px;
 	text-align: center;
@@ -25,4 +31,14 @@ div.check{
 }
 div.check:hover{
 	text-decoration: underline;	
+}
+.resultReturn{
+    background: #D4D8C7;
+    border: none;
+    padding: 3px 20px;
+    border-radius: 1px;
+    color: brown;
+    outline: none;
+    margin-left: 45%;
+    margin-bottom: 10px;
 }

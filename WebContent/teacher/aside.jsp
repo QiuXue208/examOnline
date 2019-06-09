@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="../css/teacher/aside.css">
 <aside>
 	<ul>
-		<li onclick="redirectToInfo()">信息管理</li>
+		<li onclick="redirectToInfo()">账号管理</li>
 		<li onclick="redirectToExam()">试题管理</li>
 		<li>
 			<button class="dropdown">
@@ -87,25 +87,9 @@
 				document.querySelector('button').style.background = 'white'
 			}
 		})
-// 		document.querySelector('.users').addEventListener('click',function(e){
-// 			document.querySelector('.scoreValue').style.display = 'none'
-// 			document.querySelector('.grades').style.display = 'block'
-// 		})
-// 		document.querySelector('.scores').addEventListener('click',function(e){
-// 			document.querySelector('.grades').style.display = 'none'
-// 			document.querySelector('.scoreValue').style.display = 'block'
-// 		})
-
-// 		document.querySelectorAll('.grades > div.grade').forEach(function(element,index){
-// 			element.addEventListener('click',function(){
-// 				document.querySelectorAll('.grade > div.classes').forEach(function(element1){
-// 					element1.style.display = 'none'
-// 				})
-// 				document.querySelector('.grade' + (index+1) + '>div.classes').style.display = 'block'				
-// 			})
-// 		})
 		document.querySelectorAll('.classes > div').forEach(function(element){
 			  element.addEventListener('click',function(e){
+				  document.querySelector('.selector').style.display = 'none'
 				  grade = e.target.parentNode.parentNode.classList[0].substring(5)
 				  classes = e.target.className
 				  window.location.href = './management_score.jsp?condition=users&grade='+grade +'&class='+classes
@@ -118,6 +102,7 @@
 				 if(index === 2){scoreMin = 70;scoreMax = 80;}
 				 if(index === 3){scoreMin = 60;scoreMax = 70;}
 				 if(index === 4){scoreMin = 0;scoreMax = 60;}
+				 document.querySelector('.selector').style.display = 'none'
 				 window.location.href = './management_score.jsp?condition=scores&min='+scoreMin +'&max='+scoreMax
 			})
 		})

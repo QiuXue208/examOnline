@@ -12,7 +12,7 @@
 	aside > ul > li:nth-child(2){color:crimson;}
 </style>
 </head>
-<body  onkeydown="noRefresh(event)">
+<body>
 	<div class="banner">
 	  <div class="mask"></div>
 	</div>

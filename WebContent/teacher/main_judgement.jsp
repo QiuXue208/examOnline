@@ -30,19 +30,19 @@
 		</div>
 		<div>
 			<div><span>题目</span><label>:</label></div>
-			<textarea name="title" rows="3" cols="50" placeholder="请输入题名"></textarea>
+			<textarea name="title" rows="3" cols="50" placeholder="请输入题名"></textarea><sup>*</sup>
 		</div>
 		<div>
 			<div><span>答案</span><label>:</label></div>
-			<textarea name="answer" rows="1" cols="50" placeholder="请输入答案"></textarea>
+			<textarea name="answer" rows="1" cols="50" placeholder="请输入答案"></textarea><sup>*</sup>
 		</div>
 		<div>
 			<div><span>解析</span><label>:</label></div>
-			<textarea name="score" rows="3" cols="50" placeholder="请输入解析"></textarea>
+			<textarea name="score" rows="3" cols="50" placeholder="请输入解析"></textarea><sup style="opacity: 0;">*</sup>
 		</div>
 		<div>
 			<input value="重新填写" type="button" onclick="clearAllContent()">
-			<input type="button" value="提交修改" id="submitJudgement">
+			<input type="button" value="提交修改" name="commit" id="submitJudgement" onclick="handleJudgementForm(judgementForm)">
 			<input type="button" value="取消" onclick="cancelSubmitForm()">
 		</div>
 	</form>

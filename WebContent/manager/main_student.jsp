@@ -30,16 +30,16 @@
 							<dt><%=rs1.getString("s_username")%></dt>
 							<dd>密码:</dd>
 							<dt><%=rs1.getString("password")%></dt>
-							<dd>邮箱:</dd>
-							<dt><%=rs1.getString("email")%></dt>
-							<dd>班级:</dd>
-							<dt><%=rs1.getString("class")%></dt>
+<!-- 							<dd>邮箱:</dd> -->
+<%-- 							<dt><%=rs1.getString("email")%></dt> --%>
 							<dd>年级:</dd>
 							<dt><%=rs1.getString("grade")%></dt>
+							<dd>班级:</dd>
+							<dt><%=rs1.getString("class")%></dt>
 							<dd>真名:</dd>
 							<dt><%=rs1.getString("truename")%></dt>
-							<dd>电话:</dd>
-							<dt><%=rs1.getString("phone_number")%></dt>
+<!-- 							<dd>电话:</dd> -->
+<%-- 							<dt><%=rs1.getString("phone_number")%></dt> --%>
 						</dl>
 						<div class="operator">
 							<button class="modify">修改</button>

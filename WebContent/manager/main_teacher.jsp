@@ -29,10 +29,10 @@
 						<dt><%=rs1.getString("truename")%></dt>
 						<dd>级别:</dd>
 						<dt><%=rs1.getString("level")%></dt>						
-						<dd>邮箱:</dd>
-						<dt><%=rs1.getString("email")%></dt>
-						<dd>电话:</dd>
-						<dt><%=rs1.getString("phone_number")%></dt>
+<!-- 						<dd>邮箱:</dd> -->
+<%-- 						<dt><%=rs1.getString("email")%></dt> --%>
+<!-- 						<dd>电话:</dd> -->
+<%-- 						<dt><%=rs1.getString("phone_number")%></dt> --%>
 					</dl>
 					<div class="operator">
 						<button class="modify">修改</button>

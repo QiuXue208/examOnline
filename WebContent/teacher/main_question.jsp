@@ -5,7 +5,6 @@
 <ul id="select_container">
  	<li id="selection">选择题</li>
  	<li id="judgement">判断题</li>
- 	<li id="filling">填空题</li>
  	<li id="short_five">简答题(5分)</li>
  	<li id="short_ten">简答题(10分)</li>
  	<li id="short_fifteen">简答题(15分)</li>

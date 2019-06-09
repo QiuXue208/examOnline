@@ -16,7 +16,9 @@ public class ConnDB {
 	//读取java的配置文件，也即connDB.properties文件
 //	private static Properties prop = new Properties();
 	
+	//驱动名称
 	private static String dbDriver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+	//驱动url地址
 	private static String dbUrl = "jdbc:sqlserver://localhost:1433;DatabaseName=exam_online";
 	private static String dbUser = "qiu";
 	private static String dbPwd = "1234";

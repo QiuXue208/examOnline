@@ -27,6 +27,9 @@
 	int short15ID = 0;
 	String userc15Answer = "";
 	
+	int selectionScore = 0;
+	int judgementScore = 0;
+	
 	ResultSet rs = connR.executeQuery("select * from question_selection where [user]='"+queryUser +"'");
 	while(rs.next()){
 		for(int i=0;i<10;i++){
@@ -83,13 +86,19 @@
 	while(rs55.next()){
 		userc15Answer = rs55.getString("answer1");
 	}
+	
+	ResultSet rs12 = connR.executeQuery("select * from score where [user] = '"+ queryUser + "'");
+	while(rs12.next()){
+		selectionScore = rs12.getInt("selection_score");
+		judgementScore = rs12.getInt("judgement_score");
+	}
 
 	%>
 	<div class="container">
 		<div class="complete" onclick="handleShow()">
 			<span>点击查看客观题</span>
 			<div class="selectionContainer">
-				<h3>一、选择题</h3>
+				<h3>一、选择题,总计得分<%=selectionScore %>分。</h3>
 				<%				
 				for(int i=0;i<10;i++){
 					ResultSet rs6 = connR.executeQuery("select * from selection where ID=" + selectionsID[i]);
@@ -121,7 +130,7 @@
 				%>					
 			</div>				
 			<div class="judgementContainer">
-				<h3>二、判断题，总计得分<%%></h3>	
+				<h3>二、判断题,总计得分<%=judgementScore %>分。</h3>	
 				<%
 				for(int i=0;i<10;i++){
 					ResultSet rs7 = connR.executeQuery("select * from judgement where ID = " + judgementsID[i]);
@@ -142,7 +151,7 @@
 				}%>	
 			</div>
 		</div>
-		<form calss="shortContainer" method="post" action="./review_deal.jsp?user=<%=queryUser%>">
+		<form class="shortContainer" name="scoreForm" method="post" action="./review_deal.jsp?user=<%=queryUser%>">
 			<h3>三、简答题</h3>
 			<div class="shortFive">
 			<%
@@ -151,10 +160,10 @@
 				while(rs8.next()){%>
 				<ul class="shortFiveRow row_<%=i+1%>">
 					<li><b><%=i+1%></b>、<%=rs8.getString("title")%><span>(5分)</span></li>
-					<li><span>学生答案:</span>
+					<li><span>答:</span>
 						<div class="answer"><%=userc5Answer[i]%></div>
 					</li>
-					<li>评分：<input name="short<%=i+1%>" type="number" placeholder="请打分"></li>
+					<li>评分：<input name="short<%=i+1%>" type="number" placeholder="请打分"><sup>*</sup></li>
 				</ul>
 				<%}
 			}%>		
@@ -166,8 +175,8 @@
 				while(rs9.next()){%>
 				<ul class="shortTenRow row_<%=i+6%>">
 					<li><%=i+6%>、<%=rs9.getString("title")%><span>(10分)</span></li>
-					<li><span>学生答案:</span><div class="answer"><%=userc10Answer[i]%></div></li>
-					<li>评分：<input name="short<%=i+6%>" type="number" placeholder="请打分"></li>
+					<li><span>答:</span><div class="answer"><%=userc10Answer[i]%></div></li>
+					<li>评分：<input name="short<%=i+6%>" type="number" placeholder="请打分"><sup>*</sup></li>
 				</ul>
 				<%}
 			}%>		
@@ -179,16 +188,16 @@
 			while(rs10.next()){%>
 				<ul class="shortFifteenRow row_8">
 					<li><b>8</b>、<%=rs10.getString("title") %><span>(15分)</span></li>
-					<li><span>你的答案:</span>
+					<li><span>答:</span>
 						<div class="answer"><%=userc15Answer%></div>
 					</li>
-					<li>评分：<input name="short8" type="number" placeholder="请打分"></li>
+					<li>评分：<input name="short8" type="number" placeholder="请打分"><sup>*</sup></li>
 				</ul>
 			<%}
 			%>			
 
 			</div>
-		<input type="submit" value="提交">
+			<input type="button" value="提交" onclick="handleScoreForm(scoreForm)">
 		</form>
 	</div>
 </div>
@@ -229,3 +238,4 @@
 		<%}
 	}%>
 </script>
+<script src="../js/handleScore.js"></script>"

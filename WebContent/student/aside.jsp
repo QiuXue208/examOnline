@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="../css/aside_public.css">
 <aside>
 	<ul>
-	  <li onclick="redirectToInfo()">信息管理</li>
+	  <li onclick="redirectToInfo()">账号管理</li>
 	  <li onclick="redirectToExam()">参加考试</li>
 	  <li onclick="redirectToScore()">查询成绩</li>
 	</ul>

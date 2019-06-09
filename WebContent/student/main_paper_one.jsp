@@ -13,7 +13,7 @@
 		connP.executeUpdate("insert into complete_user ([user]) values('"+ loginUser + "')");
     %> 
 		<div class="main">
-		<form method="post" id="commitPaperForm">
+		<form method="post" id="commitPaperForm" class="container">
 			<div class="selectionContainer">
 				<h3>一、选择题(该题型每题2分，一共10题)。</h3>
 				<%		
@@ -88,7 +88,7 @@
 				<ul class="judgementRow">
 					<li><b><%=sum2%></b>、<%=rs_j.getString("title")%></li>
 					<li><input type="radio" name="jradio<%=sum2%>" value="true"><span>true</span>
-						<input type="radio" name="jradio<%=sum2%>" value="false"><span>false</span>
+						<input class="option2" type="radio" name="jradio<%=sum2%>" value="false"><span>false</span>
 					</li>
 				</ul>
 				<%}
@@ -233,7 +233,7 @@
 				</div>
 			</div>
 			<div class="commitPaperContainer">
-				<input type="button" id="commit_paper" onclick="submitPaper();return false" value="提交试卷">
+				<input type="button" id="commit_paper" onclick="return submitPaper()" value="提交试卷">
 			</div>
 		</form>
 	</div>
@@ -244,6 +244,8 @@
 		    if(confirm("请认真检查试卷，确定后即可提交")){
 				document.querySelector('#commitPaperForm').setAttribute('action','./exam_result.jsp')
 				document.querySelector('#commitPaperForm').submit()
+		    }else{
+		    	return false
 		    }
 		}
 		window.onbeforeunload = function(e) {	

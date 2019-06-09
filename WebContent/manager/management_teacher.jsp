@@ -8,7 +8,7 @@
 <title>柚子考试系统</title>
 <style>
 	aside > ul > li{color:black;}
-	aside > ul > li:nth-child(3){color:crimson;}
+	aside > ul > li:nth-child(2){color:crimson;}
 </style>
 </head>
 <body>

@@ -64,11 +64,12 @@
 					<%
 					if(selections[i-1].equals(rs.getString("answer"))){%>
 						<li>答案：<%=rs.getString("answer") %></li>
+						<li class="analysis"><span>查看解析</span><div><%=rs.getString("analysis") %></div></li>
 					<%}else{%>
-						<li style="color:crimson;">答案：<%=rs.getString("answer") %></li>
+						<li style="color:crimson;">答案：<%=rs.getString("answer") %></li>						
+						<li style="color:brown;" class="analysis"><span>查看解析</span><div><%=rs.getString("analysis") %></div></li>
 					<%}%>					
-					<li class="analysis"><span>查看解析</span>
-					<div><%=rs.getString("analysis") %></div></li>
+					
 				</ul>
 		   <%}
 		}
@@ -113,12 +114,13 @@
 					<%
 					if(judgements[j-1].equals(rs.getString("answer").trim())){%>
 						<li class="answer">答案：<%=rs.getString("answer")%></li>
+						<li class="analysis"><span>查看解析</span><div><%=rs.getString("analysis") %></div></li>
 					<%}else{%>
 						<li class="answer" style="color:crimson;">答案：<%=rs.getString("answer")%></li>
+						<li class="analysis" style="color:brown;"><span>查看解析</span><div><%=rs.getString("analysis") %></div></li>
 					<%}%>
 					
-					<li class="analysis"><span>查看解析</span>
-					<div><%=rs.getString("analysis") %></div></li>
+					
 				</ul>
 		  <%}			
 		}
@@ -155,7 +157,7 @@
 			while(rs.next()){%>
 			<ul class="shortFiveRow row_<%=i%>">
 				<li><b><%=i%></b>、<%=rs.getString("title")%><span>(5分)</span></li>
-				<li><span>你的答案:</span>
+				<li><span>答:</span>
 					<div class="answer"><%=shorts[i-1]%></div></li>
 				<li class="analysis"><span>查看解析</span>
 					<div><%=rs.getString("analysis") %></div></li>
@@ -185,7 +187,7 @@
 				while(rs.next()){%>
 				<ul class="shortTenRow row_<%=i+5%>">
 					<li><b><%=i+5%></b>、<%=rs.getString("title")%><span>(10分)</span></li>
-					<li><span>你的答案:</span>
+					<li><span>答:</span>
 						<div class="answer"><%=shorts[i+4]%></div></li>
 					<li class="analysis"><span>查看解析</span>
 						<div><%=rs.getString("analysis") %></div></li>
@@ -211,7 +213,7 @@
 			while(rs.next()){%>
 				<ul class="shortFifteenRow row_8">
 					<li><b>8</b>、<%=rs.getString("title")%><span>(15分)</span></li>
-					<li><span>你的答案:</span>
+					<li><span>答:</span>
 						<div class="answer"><%=shorts[7]%></div></li>
 					<li class="analysis"><span>查看解析</span>
 						<div><%=rs.getString("analysis") %></div></li>
@@ -240,8 +242,12 @@
 	connR.executeUpdate(scoreSql);
 %>
 </div>
+<button class="resultReturn" onclick="resultReturn()">返回</button>
 </div>
 <script>
+	function resultReturn(){
+		window.location.href='./exam.jsp'
+	}
 	//选择题、获取用户的选择
 	<%for(int i=1;i<=10;i++){
 		if("A".equals(selections[i-1])){%>

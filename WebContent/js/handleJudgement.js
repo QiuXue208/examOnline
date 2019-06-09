@@ -35,13 +35,55 @@ deleteJudgementButtons.forEach(function(button){
 	})
 })
 //提交
-document.querySelector('#submitJudgement').addEventListener('click',function(e){
-	if(e.target.value === '提交修改'){
-		document.querySelector('#judgement_form').setAttribute('action','./handle_modify.jsp?type=judgement&ID=' + judgementId)
-		document.querySelector('#judgement_form').submit()
+function handleJudgementForm(form){
+	if(form.title.value===''){
+		alert('请输入题目')
+		form.title.focus()
+		return
 	}
-	if(e.target.value === '添加试题'){
-		document.querySelector('#judgement_form').setAttribute('action','./handle_add.jsp?type=judgement')
-		document.querySelector('#judgement_form').submit()
+	var answer = form.answer.value.replace(/\s*/g,"").toLowerCase()
+	if(answer===''){
+		alert('请输入答案')
+		form.answer.focus()
+		return
 	}
-})
+	if(answer.length!=1&&answer.length!=4&&answer.length!=5){
+		alert('请输入T/F或者true/false，这里不区分大小写！')
+		form.answer.focus()
+		return
+	}
+	if(answer.length===1&&!(answer==="t"||answer==="f")){
+		alert('请输入T/F或者true/false，这里不区分大小写！')
+		form.answer.focus()
+		return
+	}
+	if(answer.length===4&&!(answer==="true")){
+		alert('请输入T/F或者true/false，这里不区分大小写！')
+		form.answer.focus()
+		return
+	}
+	if(answer.length===5&&!(answer==="false")){
+		alert('请输入T/F或者true/false，这里不区分大小写！')
+		form.answer.focus()
+		return
+	}
+	if(form.commit.value==='提交修改'){
+		form.setAttribute('action','./handle_modify.jsp?type=judgement&ID=' + judgementId)
+		form.submit()
+	}
+	if(form.commit.value==='添加试题'){
+		form.setAttribute('action','./handle_add.jsp?type=judgement')
+		form.submit()
+	}
+}
+//提交
+//document.querySelector('#submitJudgement').addEventListener('click',function(e){
+//	if(e.target.value === '提交修改'){
+//		document.querySelector('#judgement_form').setAttribute('action','./handle_modify.jsp?type=judgement&ID=' + judgementId)
+//		document.querySelector('#judgement_form').submit()
+//	}
+//	if(e.target.value === '添加试题'){
+//		document.querySelector('#judgement_form').setAttribute('action','./handle_add.jsp?type=judgement')
+//		document.querySelector('#judgement_form').submit()
+//	}
+//})

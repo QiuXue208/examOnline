@@ -39,35 +39,35 @@
 		</div>
 		<div>
 			<div><span>题目</span><label>:</label></div>
-			<textarea name="title" rows="3" cols="50" placeholder="请输入题名"></textarea>
+			<textarea name="title" rows="3" cols="50" placeholder="请输入题名"></textarea><sup>*</sup>
 		</div>
 		<div>
 			<div><span>选项一</span><label>:</label></div>
-			<textarea name="option_one" rows="2" cols="50" placeholder="请输入选项一"></textarea>
+			<textarea name="option_one" rows="2" cols="50" placeholder="请输入选项一"></textarea><sup>*</sup>
 		</div>
 		<div>
 			<div><span>选项二</span><label>:</label></div>
-			<textarea name="option_two" rows="2" cols="50" placeholder="请输入选项二"></textarea>
+			<textarea name="option_two" rows="2" cols="50" placeholder="请输入选项二"></textarea><sup>*</sup>
 		</div>
 		<div>
 			<div><span>选项三</span><label>:</label></div>
-			<textarea name="option_three" rows="2" cols="50" placeholder="请输入选项三"></textarea>
+			<textarea name="option_three" rows="2" cols="50" placeholder="请输入选项三"></textarea><sup>*</sup>
 		</div>
 			<div>
 			<div><span>选项四</span><label>:</label></div>
-			<textarea name="option_four" rows="2" cols="50" placeholder="请输入选项四"></textarea>
+			<textarea name="option_four" rows="2" cols="50" placeholder="请输入选项四"></textarea><sup>*</sup>
 		</div>
 		<div>
 			<div><span>答案</span><label>:</label></div>
-			<textarea name="answer" rows="2" cols="50" placeholder="请输入答案"></textarea>
+			<textarea name="answer" rows="2" cols="50" placeholder="请输入A/B/C/D" ></textarea><sup>*</sup>
 		</div>
 		<div>
 			<div><span>解析</span><label>:</label></div>
-			<textarea name="analysis" rows="3" cols="50" placeholder="请输入解析"></textarea>
+			<textarea name="analysis" rows="3" cols="50" placeholder="请输入解析"></textarea><sup style="opacity:0;">*</sup>
 		</div>
 		<div>
 			<input value="重新填写" type="button" onclick="clearAllContent()">
-			<input type="button" value="提交修改" id="submitSelection">
+			<input type="button" name="commit" value="提交修改" id="submitSelection" onclick="handleSelectionForm(selectionForm)">
 			<input type="button" value="取消" onclick="cancelSubmitForm()">
 		</div>
 	</form>

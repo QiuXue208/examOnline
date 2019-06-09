@@ -20,12 +20,14 @@
 				<div>
 					<span class="info">用户名</span> <label>:</label>
 					<input type="text" name="username"
-						placeholder="请输入用户名" required oninvalid="setCustomValidity('请输入用户名')" oninvalid="setCustomValidity('')" >
+						placeholder="请输入用户名" required oninvalid="setCustomValidity('请输入用户名。')" oninput="setCustomValidity('')" >
+					<sup>*</sup>
 				</div>
 				<div class="eye_container"> 
 					<span class="info">密码</span><label>:</label>
 					<input type="password" id="pass" name="password"
-						placeholder="请输入密码" required oninvalid="setCustomValidity('请输入密码')" oninvalid="setCustomValidity('')" >					
+						placeholder="请输入密码" required oninvalid="setCustomValidity('请输入密码。')" oninput="setCustomValidity('')" >
+					<sup>*</sup>					
 					<img id="eye" alt="eye" src="./images/eye.png" onclick="handlePassword()">
 					<span id="set_pass">显示密码</span>
 				</div>

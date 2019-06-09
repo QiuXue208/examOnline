@@ -24,6 +24,7 @@
 		String option_two = chStr.convertStr(chStr.chStr(request.getParameter("option_two")));
 		String option_three = chStr.convertStr(chStr.chStr(request.getParameter("option_three")));
 		String option_four = chStr.convertStr(chStr.chStr(request.getParameter("option_four")));
+		answer = answer.toUpperCase();
 		String sql = "insert into selection (ID,title,option_one,option_two,option_three,option_four,answer,analysis) values ("
 					+ ID
 					+ ",'" + title
@@ -47,7 +48,14 @@
 		while(rs.next()){
 			sum ++;
 		}
-		int ID = sum + 1;		
+		int ID = sum + 1;	
+		answer = answer.toLowerCase();
+		if(answer.equals('t')){
+			answer = "true";
+		}
+		if(answer.equals('f')){
+			answer = "false";
+		}
 		String sql = "insert into judgement (ID,title,answer,analysis) values ("
 					+ ID
 					+ ",'" + title
@@ -69,10 +77,11 @@
 			sum ++;
 		}
 		int ID = sum + 1;	
-		String sql = "insert into short_" + score + "(ID,title,analysis) values ("
+		String sql = "insert into short_" + score + "(ID,title,analysis,answer) values ("
 					+ ID
 					+ ",'" + title
 					+ "','" + analysis
+					+"','" + answer
 					+ "')";
 		int result = conn.executeUpdate(sql);
 		if(result != 0){

@@ -42,4 +42,16 @@
  function sendRedirect(){
 	 window.location.href = '../index.jsp'
  }
+ identifyUser()
+ function identifyUser(){
+	 var user = document.querySelector('header>.user>span.name')
+	 <%if(user.equals("教师")){%>
+	 	user.innerText =  "<%=truename%>" + "(教师)" 
+ 	<%}if(user.equals("学生")){%>
+ 		user.innerText =  "<%=truename%>" + "(学生)"  
+ 	<%}if(user.equals("管理员")){%>
+ 		user.innerText =  "<%=truename%>" + "(管理员)"  
+ 	<%}%>
+ }
+
 </script>

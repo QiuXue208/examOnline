@@ -1,8 +1,3 @@
-div.main{
-	width:100%;
-	height:100%;
-	overflow-y:scroll;
-}
 div.main li{list-style:none;}
 .selectionContainer,
 .judgementContainer{
@@ -11,4 +6,17 @@ div.main li{list-style:none;}
 .complete > span{
 	cursor: pointer;
 	color:crimson;	
+}
+.shortContainer ul>li:nth-child(3)>input{
+	width:70px;
+}
+.shortContainer > input[type="button"]{
+	background: #D4D8C7;
+    border: none;
+    padding: 3px 20px;
+    border-radius: 1px;
+    color: brown;
+    outline: none;
+    margin-left: 45%;
+    margin-bottom: 10px;
 }

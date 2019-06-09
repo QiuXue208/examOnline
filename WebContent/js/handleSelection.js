@@ -33,13 +33,58 @@ deleteButtons.forEach(function(button){
 	})
 })
 //提交
-document.querySelector('#submitSelection').addEventListener('click',function(e){
-	if(e.target.value === '提交修改'){
-		document.querySelector('#selection_form').setAttribute('action','./handle_modify.jsp?type=selection&ID=' + selectionId)
-		document.querySelector('#selection_form').submit()
+function handleSelectionForm(form){
+	if(form.title.value === ''){
+		alert('请输入题目!')
+		form.title.focus()
+		return
 	}
-	if(e.target.value === '添加试题'){
-		document.querySelector('#selection_form').setAttribute('action','./handle_add.jsp?type=selection')
-		document.querySelector('#selection_form').submit()
+	if(form.option_one.value === ''){
+		alert('请输入选项一!')
+		form.option_one.focus()
+		return
 	}
-})
+	if(form.option_two.value === ''){
+		alert('请输入选项二!')
+		form.option_two.focus()
+		return
+	}
+	if(form.option_three.value === ''){
+		alert('请输入选项三!')
+		form.option_three.focus()
+		return
+	}
+	if(form.option_four.value === ''){
+		alert('请输入选项四!')
+		form.option_four.focus()
+		return
+	}
+	if(form.answer.value === ''){
+		alert('请输入答案!')
+		form.answer.focus()
+		return
+	}
+	if(form.answer.value.length>1||(!/^(A|B|C|D)|(a|b|c|d)/.test(form.answer.value))){
+		alert('请输入A、B、C、D或a、b、c、d中的一个')
+		form.answer.focus()
+		return
+	}
+	if(form.commit.value==='提交修改'){
+		form.setAttribute('action','./handle_modify.jsp?type=selection&ID=' + selectionId)
+		form.submit()
+	}
+	if(form.commit.value==='添加试题'){
+		form.setAttribute('action','./handle_add.jsp?type=selection')
+		form.submit()
+	}
+}
+//document.querySelector('#submitSelection').addEventListener('click',function(e){
+//	if(e.target.value === '提交修改'){
+//		document.querySelector('#selection_form').setAttribute('action','./handle_modify.jsp?type=selection&ID=' + selectionId)
+//		document.querySelector('#selection_form').submit()
+//	}
+//	if(e.target.value === '添加试题'){
+//		document.querySelector('#selection_form').setAttribute('action','./handle_add.jsp?type=selection')
+//		document.querySelector('#selection_form').submit()
+//	}
+//})

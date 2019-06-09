@@ -29,7 +29,9 @@ public class chStr {
 				str1 = str1.replaceAll("<", "&lt;");// 替换字符串中的"<"和">"字符，保证HTML标记的正常输出
 				str1 = str1.replaceAll(">", "&gt;");
 				str1 = str1.replaceAll(" ", "&nbsp;");
+				str1 = str1.replaceAll(" ","");
 				str1 = str1.replaceAll("\r\n", "<br>");
+				
 			} catch (Exception e) {
 				e.printStackTrace(System.err);
 			}

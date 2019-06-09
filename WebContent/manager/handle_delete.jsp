@@ -14,12 +14,40 @@
 	if(user.equals("teacher")){
 		String deleteSql = "delete from teacher where id =" + id;
 		int result = conn.executeUpdate(deleteSql);
-		response.sendRedirect("../manager/management_teacher.jsp");
+		if(result != 0 ){
+			out.print("<script>alert('删除成功');window.location.href='../manager/management_teacher.jsp?user=teacher'</script>");
+		}
+// 		response.sendRedirect("../manager/management_teacher.jsp?user=teacher");
 	}
 	if(user.equals("student")){
+		String s_user = "";
+		ResultSet rs = conn.executeQuery("select s_username from student where ID = "+id);
+		while(rs.next()){
+			s_user = rs.getString("s_username");
+		}
+		//需要同时删除该同学所在的表
+		ResultSet rs1 = conn.executeQuery("select * from complete_user where [user] = '" + s_user+"'");
+		if(rs1.next()){
+			conn.executeUpdate("delete from complete_user where [user] = '"+s_user+"'");
+			conn.executeUpdate("delete from score where [user] = '"+s_user+"'");
+			conn.executeUpdate("delete from question_selection where [user] = '"+s_user+"'");
+			conn.executeUpdate("delete from question_judgement where [user] = '"+s_user+"'");
+			conn.executeUpdate("delete from question_short_5 where [user] = '"+s_user+"'");
+			conn.executeUpdate("delete from question_short_10 where [user] = '"+s_user+"'");
+			conn.executeUpdate("delete from question_short_15 where [user] = '"+s_user+"'");
+			conn.executeUpdate("delete from answer_selection where [user] = '"+s_user+"'");
+			conn.executeUpdate("delete from answer_judgement where [user] = '"+s_user+"'");
+			conn.executeUpdate("delete from answer_short_5 where [user] = '"+s_user+"'");
+			conn.executeUpdate("delete from answer_short_10 where [user] = '"+s_user+"'");
+			conn.executeUpdate("delete from answer_short_15 where [user] = '"+s_user+"'");
+		}
 		String deleteSql = "delete from student where id =" + id;
 		int result = conn.executeUpdate(deleteSql);
-		response.sendRedirect("../manager/management_student.jsp?grade="+session.getAttribute("grade")+"&class="+session.getAttribute("class"));
+		if(result != 0 ){
+			String url = "../manager/management_student.jsp?grade="+session.getAttribute("grade")+"&class="+session.getAttribute("class") + "&user=student";
+			out.print("<script>alert('删除成功');window.location.href='"+url+"'</script>");
+		}
+// 		response.sendRedirect("../manager/management_student.jsp?grade="+session.getAttribute("grade")+"&class="+session.getAttribute("class"));
 	}
 	
 	

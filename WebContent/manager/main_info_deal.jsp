@@ -7,11 +7,11 @@
 <title>柚子考试系统</title>
 <%
 try{
-	String username2 = chStr.chStr(request.getParameter("username1"));
-	String password2 = chStr.chStr(request.getParameter("password1"));
-	String name2 = chStr.chStr(request.getParameter("name1"));
-	String email2 = chStr.chStr(request.getParameter("email1"));
-	String phone_number2 = chStr.chStr(request.getParameter("phone1"));
+	String username2 = chStr.chStr(request.getParameter("username"));
+	String password2 = chStr.chStr(request.getParameter("password"));
+	String name2 = chStr.chStr(request.getParameter("truename"));
+	String email2 = chStr.chStr(request.getParameter("email"));
+	String phone_number2 = chStr.chStr(request.getParameter("phone"));
 	String updateSql = "update manager set m_username = '" + username2 
 			+ "' ,password = '" + password2 
 			+ "' ,truename = '" + name2 
@@ -26,7 +26,6 @@ try{
 	session.setAttribute("password",password2);
 	if(result != 0){
 		out.print("<script language='javascript'>alert('信息修改成功-_-');window.location.href='./management_info.jsp'</script>");
-// 		response.sendRedirect("./management_info.jsp");
 	}else{
 		out.print("<script language='javascript'>alert('您未修改任何信息-_-');window.location.href='./management_info.jsp'</script>");
 	}

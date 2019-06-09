@@ -29,7 +29,7 @@
 		selectionScore = rs1.getInt("selection_score");
 		judgementScore = rs1.getInt("judgement_score");
 	}
-	allScore = selectionScore + judgementScore + short5Score + short5Score + short15Score;
+	allScore = selectionScore + judgementScore + short5Score + short10Score + short15Score;
 	String updateSql = "update score set all_score="
 					+ allScore +",short_5_score="
 					+ short5Score +",short_10_score="
